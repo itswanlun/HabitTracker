@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6109FE272568D5003F4766 /* CalendarViewController.swift */; };
+		0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */; };
+		0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38ED2747CF2F0054A51B /* String+Ext.swift */; };
+		0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38EF2747E1E60054A51B /* Date+Ext.swift */; };
+		0EAB38F2274946040054A51B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F1274946040054A51B /* TabBarController.swift */; };
+		0EAB38F4274A2B940054A51B /* AddHabit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB38F3274A2B940054A51B /* AddHabit.storyboard */; };
+		0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */; };
 		3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD059271AA9680024E6D9 /* AppDelegate.swift */; };
 		3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */; };
 		3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD05F271AA9680024E6D9 /* Main.storyboard */; };
@@ -23,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E6109FE272568D5003F4766 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		0EAB38ED2747CF2F0054A51B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		0EAB38EF2747E1E60054A51B /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		0EAB38F1274946040054A51B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0EAB38F3274A2B940054A51B /* AddHabit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddHabit.storyboard; sourceTree = "<group>"; };
+		0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
 		3CCAD056271AA9680024E6D9 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCAD059271AA9680024E6D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +68,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E6109FD272568AC003F4766 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				0E610A032725693E003F4766 /* Model */,
+				0E610A022725692D003F4766 /* View */,
+				0E610A00272568E8003F4766 /* Controller */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0E610A00272568E8003F4766 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0E6109FE272568D5003F4766 /* CalendarViewController.swift */,
+				0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0E610A022725692D003F4766 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E610A032725693E003F4766 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0EAB38EC2747CF1D0054A51B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB38ED2747CF2F0054A51B /* String+Ext.swift */,
+				0EAB38EF2747E1E60054A51B /* Date+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0EAB38F5274A2BC00054A51B /* AddHabit */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB38F8274A2BF50054A51B /* Model */,
+				0EAB38F7274A2BEB0054A51B /* View */,
+				0EAB38F6274A2BD90054A51B /* Controller */,
+			);
+			path = AddHabit;
+			sourceTree = "<group>";
+		};
+		0EAB38F6274A2BD90054A51B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0EAB38F7274A2BEB0054A51B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0EAB38F8274A2BF50054A51B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3CCAD04D271AA9680024E6D9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +169,7 @@
 				3CCAD05F271AA9680024E6D9 /* Main.storyboard */,
 				3CCAD086271ABBDD0024E6D9 /* Home.storyboard */,
 				3CCAD083271ABBA20024E6D9 /* Calendar.storyboard */,
+				0EAB38F3274A2B940054A51B /* AddHabit.storyboard */,
 			);
 			path = HabitTracker;
 			sourceTree = "<group>";
@@ -88,9 +177,9 @@
 		3CCAD06F271AAD040024E6D9 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				0EAB38F5274A2BC00054A51B /* AddHabit */,
+				0E6109FD272568AC003F4766 /* Calendar */,
 				3CCAD076271AB19A0024E6D9 /* Home */,
-				3CCAD077271AB2FA0024E6D9 /* Calendar */,
-				3CCAD07B271AB3670024E6D9 /* CreateHabit */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -98,6 +187,7 @@
 		3CCAD070271AAE960024E6D9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				0EAB38EC2747CF1D0054A51B /* Extension */,
 				3CCAD059271AA9680024E6D9 /* AppDelegate.swift */,
 				3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */,
 			);
@@ -146,70 +236,9 @@
 				3CCAD072271AAEF50024E6D9 /* Model */,
 				3CCAD073271AAEFF0024E6D9 /* View */,
 				3CCAD074271AAF0B0024E6D9 /* Controller */,
+				0EAB38F1274946040054A51B /* TabBarController.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		3CCAD077271AB2FA0024E6D9 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				3CCAD07A271AB3420024E6D9 /* Model */,
-				3CCAD079271AB33A0024E6D9 /* View */,
-				3CCAD078271AB3200024E6D9 /* Controller */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		3CCAD078271AB3200024E6D9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		3CCAD079271AB33A0024E6D9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3CCAD07A271AB3420024E6D9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3CCAD07B271AB3670024E6D9 /* CreateHabit */ = {
-			isa = PBXGroup;
-			children = (
-				3CCAD07E271AB3AF0024E6D9 /* Model */,
-				3CCAD07D271AB3A70024E6D9 /* View */,
-				3CCAD07C271AB3990024E6D9 /* Controller */,
-			);
-			path = CreateHabit;
-			sourceTree = "<group>";
-		};
-		3CCAD07C271AB3990024E6D9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		3CCAD07D271AB3A70024E6D9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3CCAD07E271AB3AF0024E6D9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3CCAD09C271C1FA80024E6D9 /* Extention */ = {
@@ -226,7 +255,6 @@
 				56E9D08F97833816007B5BFC /* Pods-HabitTracker.debug.xcconfig */,
 				1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -300,6 +328,7 @@
 				3CCAD084271ABBA20024E6D9 /* Calendar.storyboard in Resources */,
 				3CCAD087271ABBDD0024E6D9 /* Home.storyboard in Resources */,
 				3CCAD066271AA96A0024E6D9 /* LaunchScreen.storyboard in Resources */,
+				0EAB38F4274A2B940054A51B /* AddHabit.storyboard in Resources */,
 				3CCAD063271AA96A0024E6D9 /* Assets.xcassets in Resources */,
 				3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */,
 			);
@@ -354,12 +383,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */,
 				3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */,
 				3CCAD08D271ADDB10024E6D9 /* HomeController.swift in Sources */,
 				3CCAD09A271C0F450024E6D9 /* Record.swift in Sources */,
 				3CCAD097271C05B00024E6D9 /* HomeUITableViewCell.swift in Sources */,
 				3CCAD091271BF72F0024E6D9 /* Habit.swift in Sources */,
+				0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */,
+				0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */,
 				3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */,
+				0EAB38F2274946040054A51B /* TabBarController.swift in Sources */,
+				0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */,
+				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,
 				3CCAD09E271C1FCE0024E6D9 /* UIImageView+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

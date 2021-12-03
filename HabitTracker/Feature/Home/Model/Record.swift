@@ -9,10 +9,11 @@ import Foundation
 
 struct Record {
     let id: UUID
-    let HabitName: String
-    let UnitType: String
-    let Goal: Int
-    let Record: Int
-    let Icon: String
-    let Color: String
+    let habit: Habit
+    let value: Int
+    let date: Date
+    
+    var isAchieve: Bool {
+        value >= habit.goal
+    }
 }

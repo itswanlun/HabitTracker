@@ -9,13 +9,13 @@ import Foundation
 
 struct Habit {
     let id: UUID
-    let HabitName: String
-    let UnitType: String
-    let Goal: Int
-    let Icon: String
-    let Color: String
-    let QuickAdd1: Int
-    let QuickAdd2: Int
-    let QuickAdd3: Int
-    let QuickAdd4: Int
+    let name: String
+    let unitType: String
+    let goal: Int
+    let icon: String
+    let color: String
+    let quickAdd1: Int
+    let quickAdd2: Int
+    let quickAdd3: Int
+    let quickAdd4: Int
 }

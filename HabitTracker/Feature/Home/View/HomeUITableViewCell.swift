@@ -9,7 +9,8 @@ import UIKit
 
 class HomeUITableViewCell: UITableViewCell {
     
-    @IBOutlet var IconImageView: UIImageView!
+
+    @IBOutlet weak var icon: UILabel!
     @IBOutlet var HabitName: UILabel!
     @IBOutlet var Record: UILabel!
     @IBOutlet var Percent: UILabel!
