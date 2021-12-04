@@ -14,6 +14,12 @@
 		0EAB38F2274946040054A51B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F1274946040054A51B /* TabBarController.swift */; };
 		0EAB38F4274A2B940054A51B /* AddHabit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB38F3274A2B940054A51B /* AddHabit.storyboard */; };
 		0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */; };
+		3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */; };
+		3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2D275B17260019D9BA /* ColorViewController.swift */; };
+		3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA30275B17530019D9BA /* IconViewController.swift */; };
+		3C54FA35275B1ACB0019D9BA /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */; };
+		3C54FA38275B1AF70019D9BA /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */; };
+		3C54FA3C275B2DCB0019D9BA /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA3B275B2DCB0019D9BA /* Color+Ext.swift */; };
 		3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD059271AA9680024E6D9 /* AppDelegate.swift */; };
 		3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */; };
 		3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD05F271AA9680024E6D9 /* Main.storyboard */; };
@@ -38,6 +44,12 @@
 		0EAB38F3274A2B940054A51B /* AddHabit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddHabit.storyboard; sourceTree = "<group>"; };
 		0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
+		3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeViewController.swift; sourceTree = "<group>"; };
+		3C54FA2D275B17260019D9BA /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		3C54FA30275B17530019D9BA /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
+		3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C54FA3B275B2DCB0019D9BA /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		3CCAD056271AA9680024E6D9 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCAD059271AA9680024E6D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +118,7 @@
 			children = (
 				0EAB38ED2747CF2F0054A51B /* String+Ext.swift */,
 				0EAB38EF2747E1E60054A51B /* Date+Ext.swift */,
+				3C54FA3B275B2DCB0019D9BA /* Color+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -124,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */,
+				3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */,
+				3C54FA2D275B17260019D9BA /* ColorViewController.swift */,
+				3C54FA30275B17530019D9BA /* IconViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +147,8 @@
 		0EAB38F7274A2BEB0054A51B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */,
+				3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C54FA35275B1ACB0019D9BA /* ColorCollectionViewCell.swift in Sources */,
 				0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */,
 				3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */,
 				3CCAD08D271ADDB10024E6D9 /* HomeController.swift in Sources */,
@@ -394,8 +413,13 @@
 				3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */,
 				0EAB38F2274946040054A51B /* TabBarController.swift in Sources */,
 				0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */,
+				3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */,
 				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,
+				3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */,
+				3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */,
 				3CCAD09E271C1FCE0024E6D9 /* UIImageView+Ext.swift in Sources */,
+				3C54FA3C275B2DCB0019D9BA /* Color+Ext.swift in Sources */,
+				3C54FA38275B1AF70019D9BA /* IconCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,13 +568,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 435AM725KY;
+				DEVELOPMENT_TEAM = B92JLVTB27;
 				INFOPLIST_FILE = HabitTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bingkuo.HabitTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grace.HabitTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -564,13 +588,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 435AM725KY;
+				DEVELOPMENT_TEAM = B92JLVTB27;
 				INFOPLIST_FILE = HabitTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bingkuo.HabitTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grace.HabitTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

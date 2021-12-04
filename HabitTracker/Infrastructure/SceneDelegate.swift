@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  HabitTracker
-//
-//  Created by Bing Kuo on 2021/10/16.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

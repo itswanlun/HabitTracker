@@ -1,10 +1,3 @@
-//
-//  HomeConytroller.swift
-//  HabitTracker
-//
-//  Created by Bing Kuo on 2021/10/16.
-//
-
 import UIKit
 
 var habitData: [Habit] = [

@@ -9,6 +9,7 @@ import UIKit
 
 class AddHabitViewController: UIViewController {
     
+    @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var closeButtonItem: UIBarButtonItem!
     @IBAction func closeButtonItemTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -16,6 +17,7 @@ class AddHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        goalModleButton.layer.cornerRadius = 5
 
         // Do any additional setup after loading the view.
     }

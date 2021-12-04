@@ -1,10 +1,3 @@
-//
-//  UIImageView+Ext.swift
-//  JsonplaceholderAPIDemobyWanLun
-//
-//  Created by Bing Guo on 2021/8/20.
-//
-
 import Foundation
 import UIKit
 

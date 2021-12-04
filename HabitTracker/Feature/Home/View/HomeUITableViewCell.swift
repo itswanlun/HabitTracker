@@ -1,10 +1,3 @@
-//
-//  HomeUITableViewCell.swift
-//  HabitTracker
-//
-//  Created by Bing Kuo on 2021/10/17.
-//
-
 import UIKit
 
 class HomeUITableViewCell: UITableViewCell {
