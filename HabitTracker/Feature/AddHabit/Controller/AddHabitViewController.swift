@@ -1,10 +1,3 @@
-//
-//  AddHabitViewController.swift
-//  HabitTracker
-//
-//  Created by Wan-lun Zheng on 2021/11/21.
-//
-
 import UIKit
 
 class AddHabitViewController: UIViewController {
@@ -15,11 +8,27 @@ class AddHabitViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    var goal: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         goalModleButton.layer.cornerRadius = 5
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "GoToGoalMode" {
+            let destination = segue.destination as! GoalModeViewController
+            destination.delegate = self
+        }
     }
 
+    @IBAction func GoalButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "GoToGoalMode", sender: self)
+    }
+}
+
+extension AddHabitViewController: GoalModeViewControllerDelegate {
+    func goalMode(_ viewController: GoalModeViewController, receivedGoal goal: Int) {
+        self.goal = goal
+    }
 }
