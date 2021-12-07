@@ -1,7 +1,24 @@
 import UIKit
 
+enum GoalModeType {
+    case count
+    case mins
+    case ml
+    
+    var text: String {
+        switch self {
+        case .count:
+            return "Count"
+        case .mins:
+            return "Mins"
+        case .ml:
+            return "ML"
+        }
+    }
+}
+
 protocol GoalModeViewControllerDelegate: AnyObject {
-    func goalMode(_ viewController: GoalModeViewController, receivedGoal goal: Int)
+    func goalMode(_ viewController: GoalModeViewController, receivedUnit unit: GoalModeType, reveovedGoal goal: Int)
 }
 
 class GoalModeViewController: UIViewController {
@@ -14,9 +31,11 @@ class GoalModeViewController: UIViewController {
     private let toolBar = UIToolbar()
     private let myPickerView = UIPickerView()
     private let fullScreenSize = UIScreen.main.bounds.size
-    private let unit = ["Count", "Mins"]
+    private let unit: [GoalModeType] = [.count, .mins, .ml]
     
     weak var delegate: GoalModeViewControllerDelegate?
+    var currentGoal: Int = 1
+    var currentUnitType: GoalModeType = .count
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,7 +46,9 @@ class GoalModeViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func saveButtonTapped(_ sender: Any) {
-        delegate?.goalMode(self, receivedGoal: 10)
+        delegate?.goalMode(self, receivedUnit: currentUnitType, reveovedGoal: currentGoal)
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -65,21 +86,28 @@ extension GoalModeViewController {
     
     private func setupTextField() {
         enterValueTextField.inputAccessoryView = toolBar
+        enterValueTextField.text = "\(currentGoal)"
+        enterValueTextField.addTarget(self, action: #selector(enterValueTextFieldChanged(_:)), for: .editingChanged)
         
         unitTextField.inputAccessoryView = toolBar
         unitTextField.inputView = myPickerView
-        unitTextField.text = unit[0]
-        unitTextField.tag = 100
         unitTextField.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
         unitTextField.textAlignment = .center
         unitTextField.center = CGPoint(x: fullScreenSize.width * 0.5, y: fullScreenSize.height * 0.15)
+        unitTextField.delegate = self
+        unitTextField.text = currentUnitType.text
     }
 }
 
 // MARK: - Actions
 extension GoalModeViewController {
+    @objc func enterValueTextFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text else { return }
+        
+        currentGoal = Int(text) ?? currentGoal
+    }
+    
     @objc func donePicker(_ sender: UIBarButtonItem) {
-        print(sender)
         unitTextField.resignFirstResponder()
         enterValueTextField.resignFirstResponder()
     }
@@ -96,11 +124,19 @@ extension GoalModeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return unit[row]
+        return unit[row].text
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let myTextField = self.view?.viewWithTag(100) as? UITextField
-        myTextField?.text = unit[row]
+        let unit = unit[row]
+        
+        unitTextField.text = unit.text
+        currentUnitType = unit
+    }
+}
+
+extension GoalModeViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }

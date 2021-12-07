@@ -1,8 +1,13 @@
 import UIKit
 
+protocol IconViewControllerDelegate: AnyObject {
+    func Icon(_ viewController: IconViewController, receivedIcon icon: String)
+}
+
 class IconViewController: UIViewController {
     private let reuseIdentifier = "iconcell"
     private var icons: [String] = ["🧘🏻", "💧", "🙏", "🍎", "🥦", "☕️","🏊🏻", "📚", "🍖","🥃", "🛏", "💩"]
+    weak var delegate: IconViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,12 @@ extension IconViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.iconLabel.text = icon
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        delegate?.Icon(self, receivedIcon: icons[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
     }
     
     

@@ -1,16 +1,20 @@
 PODS:
   - JTAppleCalendar (8.0.3)
+  - MKRingProgressView (2.3.0)
 
 DEPENDENCIES:
   - JTAppleCalendar
+  - MKRingProgressView
 
 SPEC REPOS:
   trunk:
     - JTAppleCalendar
+    - MKRingProgressView
 
 SPEC CHECKSUMS:
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  MKRingProgressView: f534209b9a1edc0beb2ea613e6b953ea2195b565
 
-PODFILE CHECKSUM: 58757d208c5597853fd25db9202d4a4592b58007
+PODFILE CHECKSUM: bb3322dc90f79ac9e7bdb62abd6a9b0c5b43b4c6
 
 COCOAPODS: 1.11.2

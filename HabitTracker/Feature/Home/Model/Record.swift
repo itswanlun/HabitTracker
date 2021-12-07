@@ -3,7 +3,7 @@ import Foundation
 struct Record {
     let id: UUID
     let habit: Habit
-    let value: Int
+    var value: Int
     let date: Date
     
     var isAchieve: Bool {

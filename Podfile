@@ -7,4 +7,5 @@ target 'HabitTracker' do
 
   # Pods for HabitTracker
 	pod 'JTAppleCalendar'
+	pod 'MKRingProgressView'
 end

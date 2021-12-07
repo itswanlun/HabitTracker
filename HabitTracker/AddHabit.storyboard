@@ -19,55 +19,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habit Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-hy-vhh">
-                                <rect key="frame" x="16" y="104" width="382" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <rect key="frame" x="16" y="104" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzD-jf-Syp">
-                                <rect key="frame" x="16" y="144" width="382" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzD-jf-Syp">
+                                <rect key="frame" x="16" y="143" width="382" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7JG-30-O5y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal(count)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de8-Yr-yqZ">
-                                <rect key="frame" x="16" y="188" width="382" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <rect key="frame" x="16" y="203" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6m-Ij-ltg">
-                                <rect key="frame" x="16" y="228" width="382" height="30"/>
+                                <rect key="frame" x="16" y="242" width="382" height="41"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="cez-IV-g7e"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1235559359" green="0.12358016519999999" blue="0.123550646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="1 count/day"/>
                                 <connections>
                                     <action selector="GoalButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2lJ-g7-wjT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raf-Uy-wy0">
-                                <rect key="frame" x="16" y="268" width="382" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <rect key="frame" x="16" y="303" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-rJ-wrr">
-                                <rect key="frame" x="16" y="308" width="382" height="30"/>
+                                <rect key="frame" x="16" y="342" width="382" height="30"/>
                                 <state key="normal" title="Color"/>
                                 <connections>
                                     <segue destination="VD1-5e-wIC" kind="show" id="rqC-0w-Slc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej5-HV-IFB">
-                                <rect key="frame" x="16" y="348" width="382" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <rect key="frame" x="16" y="392" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeS-Ov-xwC">
-                                <rect key="frame" x="16" y="388" width="382" height="30"/>
+                                <rect key="frame" x="16" y="431" width="382" height="30"/>
                                 <state key="normal" title="Icon"/>
                                 <connections>
-                                    <segue destination="hz2-sg-jDK" kind="show" id="YKz-0o-4aD"/>
+                                    <action selector="IconButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ch3-6n-mvt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,8 +89,8 @@
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="NXg-fM-Y5R"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="RKc-RT-Pyr"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="UmE-Hy-yvu"/>
-                            <constraint firstItem="raf-Uy-wy0" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="10" id="Xor-q0-Q68"/>
-                            <constraint firstItem="Ej5-HV-IFB" firstAttribute="top" secondItem="FVi-rJ-wrr" secondAttribute="bottom" constant="10" id="ZMV-PD-cxQ"/>
+                            <constraint firstItem="raf-Uy-wy0" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="20" id="Xor-q0-Q68"/>
+                            <constraint firstItem="Ej5-HV-IFB" firstAttribute="top" secondItem="FVi-rJ-wrr" secondAttribute="bottom" constant="20" id="ZMV-PD-cxQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EeS-Ov-xwC" secondAttribute="trailing" constant="16" id="dVG-ZM-Q3H"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ej5-HV-IFB" secondAttribute="trailing" constant="16" id="dlp-hb-IFx"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="e4h-2C-HO5"/>
@@ -92,7 +99,7 @@
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="fTD-TC-LoK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FVi-rJ-wrr" secondAttribute="trailing" constant="16" id="gI6-74-Yxl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="raf-Uy-wy0" secondAttribute="trailing" constant="16" id="j96-Kv-zmB"/>
-                            <constraint firstItem="de8-Yr-yqZ" firstAttribute="top" secondItem="lzD-jf-Syp" secondAttribute="bottom" constant="10" id="njg-VI-zQ6"/>
+                            <constraint firstItem="de8-Yr-yqZ" firstAttribute="top" secondItem="lzD-jf-Syp" secondAttribute="bottom" constant="20" id="njg-VI-zQ6"/>
                             <constraint firstItem="Ej5-HV-IFB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nwx-JX-d2O"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="top" secondItem="de8-Yr-yqZ" secondAttribute="bottom" constant="10" id="pLM-Lh-rFh"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="ufb-c1-e9y"/>
@@ -110,12 +117,14 @@
                     <connections>
                         <outlet property="closeButtonItem" destination="DFr-xU-dwx" id="5Tp-iW-W7f"/>
                         <outlet property="goalModleButton" destination="l6m-Ij-ltg" id="oPF-4c-ztt"/>
+                        <outlet property="iconButton" destination="EeS-Ov-xwC" id="sfO-aW-0Ap"/>
                         <segue destination="uK4-cE-Uzw" kind="show" identifier="GoToGoalMode" id="POo-wK-zRz"/>
+                        <segue destination="hz2-sg-jDK" kind="show" identifier="GoToIcon" id="VM9-hl-nGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010.144927536232" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1062" y="47"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="esI-fP-awG">
@@ -209,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGE-1P-3at" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2491" y="-86"/>
+            <point key="canvasLocation" x="2177" y="-276"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="OdA-Am-jxu">

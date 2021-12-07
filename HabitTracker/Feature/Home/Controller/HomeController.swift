@@ -1,25 +1,5 @@
 import UIKit
 
-var habitData: [Habit] = [
-    Habit(id: UUID(), name: "Water", unitType: "Mal", goal: 2000, icon: "💦", color: "", quickAdd1: 200, quickAdd2: 300, quickAdd3: 500, quickAdd4: 600),
-    Habit(id: UUID(), name: "Yoga", unitType: "Mins", goal: 60, icon: "🧘🏻", color: "", quickAdd1: 10, quickAdd2: 30, quickAdd3: 40, quickAdd4: 60),
-    Habit(id: UUID(), name: "Eat Fruit", unitType: "Count", goal: 1, icon: "🍎", color: "", quickAdd1: 0, quickAdd2: 0, quickAdd3: 0, quickAdd4: 0)
-    ]
-
-var recordData: [Record] = [
-    Record(id: UUID(), habit: habitData[0], value: 2000, date: Date()),
-    Record(id: UUID(), habit: habitData[0], value: 2000, date: "2021-11-19".toDate()!),
-    Record(id: UUID(), habit: habitData[1], value: 666660, date: "2021-1-23".toDate()!),
-    Record(id: UUID(), habit: habitData[1], value: 666660, date: "2021-1-24".toDate()!),
-    Record(id: UUID(), habit: habitData[1], value: 666660, date: "2021-1-25".toDate()!),
-    Record(id: UUID(), habit: habitData[1], value: 666660, date: "2021-11-18".toDate()!),
-    Record(id: UUID(), habit: habitData[1], value: 666660, date: Date()),
-    Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-17".toDate()!),
-    Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-05".toDate()!),
-    Record(id: UUID(), habit: habitData[2], value: 1, date: Date()),
-    Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-11-19".toDate()!)
-]
-
 class HomeController: UIViewController {
     
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
@@ -54,21 +34,38 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Today"
+        //        title = "Today"
+        self.navigationItem.title = "Today"
         filterCurrentSelectedDateRecordData(selectedDate)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "GoToHomeDetailCount" {
+            let destination = segue.destination as! HomeDetailViewController
+            
+            if let record = sender as? Record {
+                destination.record = record
+            }
+        } else if segue.identifier  == "GoToHomeDetailML" {
+            let destination = segue.destination as! HomeDetailMLViewController
+            
+            if let record = sender as? Record {
+                destination.item = record
+            }
+        }
     }
 }
 
 private extension HomeController {
     func setupTitle(_ date: Date) {
         if date.isToday {
-            title = "Today"
+            self.navigationItem.title = "Today"
         } else if date.isYesterday {
-            title = "Yesterday"
+            self.navigationItem.title = "Yesterday"
         } else if date.isTomorrow {
-            title = "Tomorrow"
+            self.navigationItem.title = "Tomorrow"
         } else {
-            title = date.toString("MMM dd")
+            self.navigationItem.title = date.toString("MMM dd")
         }
     }
     
@@ -84,7 +81,7 @@ private extension HomeController {
     
     func filterCurrentSelectedDateRecordData(_ date: Date) {
         selectedDateRecord = []
-        for record in recordData {
+        for record in FakeDataSource.shared.recordData {
             if selectedDate.toString() == record.date.toString() {
                 selectedDateRecord.append(record)
             }
@@ -93,14 +90,22 @@ private extension HomeController {
 }
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedDateRecord.count
+        if section == 0 {
+            return selectedDateRecord.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
-
+            
             return UITableViewCell()
         }
         
@@ -113,9 +118,37 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         cell.Percent.text = "\(percent) %"
         cell.icon.text = "\(item.habit.icon)"
         
-//        if let url = URL(string: item.habit.icon) {
-//            cell.IconImageView.setImage(url :url)
-//        }
+        //        if let url = URL(string: item.habit.icon) {
+        //            cell.IconImageView.setImage(url :url)
+        //        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = selectedDateRecord[indexPath.row]
+        switch record.habit.unitType {
+            case "ML", "Mins":
+                self.performSegue(withIdentifier: "GoToHomeDetailML", sender: record)
+            case "Count":
+                self.performSegue(withIdentifier: "GoToHomeDetailCount", sender: record)
+        default:
+            self.performSegue(withIdentifier: "GoToHomeDetailCount", sender: record)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return ""
+        } else {
+            return "Completed"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 60
+        }
     }
 }

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +30,7 @@
         <scene sceneID="BOu-t5-Ie4">
             <objects>
                 <viewControllerPlaceholder storyboardName="Calendar" id="g5h-6w-kmo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TlA-gM-ni8"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="calendar" catalog="system" id="TlA-gM-ni8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhP-lh-9uW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,11 +40,17 @@
         <scene sceneID="3EA-hn-CiU">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="aW5-Jg-209" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tJx-bK-PE6"/>
+                    <tabBarItem key="tabBarItem" title="" id="tJx-bK-PE6">
+                        <imageReference key="image" image="house.fill" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yo6-ih-cSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-642" y="-648"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+    </resources>
 </document>

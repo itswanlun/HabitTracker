@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aeG-wx-BPK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aeG-wx-BPK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-CA-n8V">
-                                <rect key="frame" x="15" y="59" width="384" height="788"/>
+                                <rect key="frame" x="15" y="59" width="384" height="739"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f64-Qn-mSl">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="70"/>
@@ -51,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8g-Nd-dah">
-                                        <rect key="frame" x="0.0" y="169" width="384" height="504"/>
+                                        <rect key="frame" x="0.0" y="169" width="384" height="455"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yd2-nm-AcU">
                                                 <rect key="frame" x="15" y="0.0" width="354" height="20.5"/>
@@ -101,7 +102,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uce-Rn-nS5" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                                <rect key="frame" x="15" y="35.5" width="354" height="453.5"/>
+                                                <rect key="frame" x="15" y="35.5" width="354" height="404.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ai2-Ji-pn6">
                                                     <size key="itemSize" width="85" height="84"/>
@@ -154,7 +155,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivj-gl-YpS">
-                                        <rect key="frame" x="0.0" y="688" width="384" height="100"/>
+                                        <rect key="frame" x="0.0" y="639" width="384" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🟢  COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngg-Zc-XRu">
                                                 <rect key="frame" x="0.0" y="85.5" width="384" height="14.5"/>
@@ -183,7 +184,9 @@
                             <constraint firstItem="8hV-CA-n8V" firstAttribute="leading" secondItem="4yL-t2-Bg1" secondAttribute="leading" constant="15" id="xvc-SB-IQD"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="calendar" catalog="system" id="F2N-3Y-0OS"/>
                     <navigationItem key="navigationItem" id="pmn-xm-5vC"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarCollectionView" destination="uce-Rn-nS5" id="Oto-4Z-GTD"/>
                         <outlet property="habitListStackView" destination="w9I-Uj-CTF" id="2eV-Vf-a6t"/>
@@ -196,6 +199,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

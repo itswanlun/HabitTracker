@@ -108,17 +108,244 @@
                         <outlet property="homeTableView" destination="y7W-ld-RfC" id="FUB-ds-5Ot"/>
                         <outlet property="leftBarButtonItem" destination="Hfb-xA-j8I" id="xjk-8k-EOf"/>
                         <outlet property="rightBarButtonItem" destination="ZVf-bX-8sS" id="bAP-CJ-AUD"/>
+                        <segue destination="MHa-y9-gp4" kind="show" identifier="GoToHomeDetailCount" id="CWH-IE-NKa"/>
+                        <segue destination="wUW-oa-bR6" kind="show" identifier="GoToHomeDetailML" id="FFn-Kw-opx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JST-hL-5JQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.75362318840587" y="93.75"/>
         </scene>
-        <!--Home-->
+        <!--Home DetailML View Controller-->
+        <scene sceneID="SMv-Sa-O4i">
+            <objects>
+                <viewController id="wUW-oa-bR6" customClass="HomeDetailMLViewController" customModule="HabitTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XJU-kP-flh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4J7-eK-66i" customClass="MKRingProgressView">
+                                <rect key="frame" x="16" y="128" width="382" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="9Mx-Ty-AJG"/>
+                                    <constraint firstAttribute="width" secondItem="4J7-eK-66i" secondAttribute="height" multiplier="191:150" id="sBq-VB-8Wm"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXD-6P-jum">
+                                <rect key="frame" x="137" y="266" width="140.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="PjU-61-Rd6" userLabel="Quick Add One Stack View">
+                                <rect key="frame" x="48.5" y="528" width="317" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27k-UY-ljJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-VR-duc" userLabel="Return Button">
+                                        <rect key="frame" x="287" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="2nO-kl-hNp"/>
+                                            <constraint firstAttribute="height" constant="30" id="nDu-8v-IqM"/>
+                                        </constraints>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="returnTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="o5i-vN-2Ia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-wx-9Hd">
+                                <rect key="frame" x="0.0" y="568" width="414" height="245"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0i-gh-Aci" userLabel="Quick Add Two Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-cl-oVr" userLabel="Quick One Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="122.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="quickoneTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="Tth-3b-dNm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEN-U1-ayJ" userLabel="Quick Two Button">
+                                                <rect key="frame" x="390" y="0.0" width="24" height="122.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="quicktwoTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="u0D-hr-kzg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIP-Yi-2bk" userLabel="Quick Add Three Stack View">
+                                        <rect key="frame" x="0.0" y="122.5" width="414" height="122.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-fo-flJ" userLabel="Quick Three Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="122.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="quickthreeTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="gpd-V1-An1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-wK-Ffl" userLabel="Quick Four Button">
+                                                <rect key="frame" x="24" y="0.0" width="390" height="122.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="quickfourTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="7GC-Sa-9be"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5P4-0W-7Np"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5P4-0W-7Np" firstAttribute="trailing" secondItem="ZM7-wx-9Hd" secondAttribute="trailing" id="6tS-F5-LXe"/>
+                            <constraint firstItem="ZM7-wx-9Hd" firstAttribute="top" secondItem="PjU-61-Rd6" secondAttribute="bottom" constant="10" id="DEA-Hh-CaB"/>
+                            <constraint firstItem="4J7-eK-66i" firstAttribute="top" secondItem="5P4-0W-7Np" secondAttribute="top" constant="40" id="FaH-j2-Tbq"/>
+                            <constraint firstItem="OXD-6P-jum" firstAttribute="centerY" secondItem="4J7-eK-66i" secondAttribute="centerY" id="HkE-Xi-dSt"/>
+                            <constraint firstItem="5P4-0W-7Np" firstAttribute="trailing" secondItem="4J7-eK-66i" secondAttribute="trailing" constant="16" id="PZW-Gr-VoK"/>
+                            <constraint firstItem="OXD-6P-jum" firstAttribute="centerX" secondItem="4J7-eK-66i" secondAttribute="centerX" id="VBj-sr-uCR"/>
+                            <constraint firstItem="4J7-eK-66i" firstAttribute="leading" secondItem="5P4-0W-7Np" secondAttribute="leading" constant="16" id="jkg-Hv-bqh"/>
+                            <constraint firstItem="PjU-61-Rd6" firstAttribute="top" secondItem="4J7-eK-66i" secondAttribute="bottom" constant="100" id="kAl-Dv-I2P"/>
+                            <constraint firstItem="PjU-61-Rd6" firstAttribute="centerX" secondItem="XJU-kP-flh" secondAttribute="centerX" id="mB2-zp-MGp"/>
+                            <constraint firstItem="5P4-0W-7Np" firstAttribute="bottom" secondItem="ZM7-wx-9Hd" secondAttribute="bottom" id="vpf-9y-3ed"/>
+                            <constraint firstItem="ZM7-wx-9Hd" firstAttribute="leading" secondItem="5P4-0W-7Np" secondAttribute="leading" id="z2Q-uN-hk0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="A74-hl-VT2"/>
+                    <connections>
+                        <outlet property="progressLabel" destination="OXD-6P-jum" id="j78-j1-0Dg"/>
+                        <outlet property="quickfourButton" destination="22H-wK-Ffl" id="6RQ-aY-9j9"/>
+                        <outlet property="quickoneButton" destination="UKG-cl-oVr" id="Tfq-LW-GBv"/>
+                        <outlet property="quickthreeButton" destination="7zH-fo-flJ" id="Y2v-uR-yAm"/>
+                        <outlet property="quicktwoButton" destination="SEN-U1-ayJ" id="pPd-7s-rEd"/>
+                        <outlet property="returnButton" destination="iPf-VR-duc" id="t0Q-dM-9dh"/>
+                        <outlet property="ringProgressView" destination="4J7-eK-66i" id="ixr-pi-nXg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1J-J3-Plh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="461"/>
+        </scene>
+        <!--Home Detail View Controller-->
+        <scene sceneID="zJu-zX-jYw">
+            <objects>
+                <viewController id="MHa-y9-gp4" customClass="HomeDetailViewController" customModule="HabitTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Tv-FA-jD0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-ta-8sB" customClass="MKRingProgressView">
+                                <rect key="frame" x="16" y="128" width="382" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sJ2-ta-8sB" secondAttribute="height" multiplier="191:150" id="ax9-i7-qXK"/>
+                                    <constraint firstAttribute="height" constant="300" id="oAO-Aa-ihT"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-Sf-MND">
+                                <rect key="frame" x="137" y="266" width="140.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aTH-AN-9QU" userLabel="Count Stack View">
+                                <rect key="frame" x="132" y="468" width="150" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToD-dK-CsS">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Uuy-Uh-Xg0"/>
+                                            <constraint firstAttribute="width" constant="50" id="XCi-dx-xSz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="minus.circle.fill" catalog="system"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="minusTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="l3I-6E-fDF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fq-6Q-69s">
+                                        <rect key="frame" x="100" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="cqq-z1-FkW"/>
+                                            <constraint firstAttribute="height" constant="50" id="gUm-TE-Ch4"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="plus.circle.fill" catalog="system"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="plusTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="JNC-8w-qNL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1sK-vU-wjn">
+                                <rect key="frame" x="0.0" y="618" width="414" height="62"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-mW-JTy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="I did it!"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eH-Wc-dtQ">
+                                        <rect key="frame" x="0.0" y="31" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Undo"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="83l-k2-csb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aTH-AN-9QU" firstAttribute="centerX" secondItem="1Tv-FA-jD0" secondAttribute="centerX" id="3Jk-zz-ioQ"/>
+                            <constraint firstItem="aTH-AN-9QU" firstAttribute="top" secondItem="sJ2-ta-8sB" secondAttribute="bottom" constant="40" id="5PI-CO-tf6"/>
+                            <constraint firstItem="sJ2-ta-8sB" firstAttribute="top" secondItem="83l-k2-csb" secondAttribute="top" constant="40" id="B7R-EP-PQn"/>
+                            <constraint firstItem="83l-k2-csb" firstAttribute="trailing" secondItem="sJ2-ta-8sB" secondAttribute="trailing" constant="16" id="HHy-Ou-P2K"/>
+                            <constraint firstItem="aTH-AN-9QU" firstAttribute="bottom" secondItem="1sK-vU-wjn" secondAttribute="top" constant="-100" id="I0f-lr-ghu"/>
+                            <constraint firstItem="1sK-vU-wjn" firstAttribute="leading" secondItem="83l-k2-csb" secondAttribute="leading" id="MM0-Li-tGj"/>
+                            <constraint firstItem="83l-k2-csb" firstAttribute="trailing" secondItem="1sK-vU-wjn" secondAttribute="trailing" id="MUh-MD-pqp"/>
+                            <constraint firstItem="Yts-Sf-MND" firstAttribute="centerY" secondItem="sJ2-ta-8sB" secondAttribute="centerY" id="MYY-nG-M99"/>
+                            <constraint firstItem="sJ2-ta-8sB" firstAttribute="leading" secondItem="83l-k2-csb" secondAttribute="leading" constant="16" id="OZK-rn-xfm"/>
+                            <constraint firstItem="Yts-Sf-MND" firstAttribute="centerX" secondItem="sJ2-ta-8sB" secondAttribute="centerX" id="lUQ-Yk-zkg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CH7-I9-O4x"/>
+                    <connections>
+                        <outlet property="ididitButton" destination="NsN-mW-JTy" id="4qY-2e-RUn"/>
+                        <outlet property="minusButton" destination="ToD-dK-CsS" id="MiD-k6-5kp"/>
+                        <outlet property="plusButton" destination="1Fq-6Q-69s" id="zQV-FK-nC2"/>
+                        <outlet property="progressLabel" destination="Yts-Sf-MND" id="3e1-HN-76x"/>
+                        <outlet property="ringProgressView" destination="sJ2-ta-8sB" id="NnE-6g-1Pn"/>
+                        <outlet property="undoButton" destination="5eH-Wc-dtQ" id="lqL-2v-P4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ftc-CP-ZeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="-390"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="soZ-Th-47l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="re3-0Y-fmu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="grM-GM-Zfc"/>
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="grM-GM-Zfc"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BPI-cG-B69">
@@ -136,8 +363,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

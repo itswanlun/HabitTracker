@@ -58,8 +58,8 @@ class CalendarViewController: UIViewController {
     
     func selectRecordData(buttonindex: Int) {
         selectedHabitData = []
-        let habit = habitData[buttonindex]
-        for record in recordData {
+        let habit = FakeDataSource.shared.habitData[buttonindex]
+        for record in FakeDataSource.shared.recordData {
             if habit.id == record.habit.id {
                 selectedHabitData.append(record)
             }
@@ -83,7 +83,7 @@ class CalendarViewController: UIViewController {
 //        habitView.backgroundColor = .brown
 
         
-        for (index, record) in habitData.enumerated() {
+        for (index, record) in FakeDataSource.shared.habitData.enumerated() {
             
             let habitButton = UIButton()
             habitButton.setTitle(record.icon, for: .normal)
