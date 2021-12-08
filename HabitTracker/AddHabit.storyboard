@@ -77,16 +77,34 @@
                                     <action selector="IconButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ch3-6n-mvt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-Lj-43N">
+                                <rect key="frame" x="157" y="812" width="100" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9ky-ON-Ux4"/>
+                                    <constraint firstAttribute="height" constant="50" id="x3U-9h-36Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveHabitTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HRv-Av-oIC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Mmp-Lj-43N" secondAttribute="bottom" id="167-Jc-OVV"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="2BM-1G-cVM"/>
                             <constraint firstItem="raf-Uy-wy0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5IM-qW-Pvw"/>
                             <constraint firstItem="FVi-rJ-wrr" firstAttribute="top" secondItem="raf-Uy-wy0" secondAttribute="bottom" constant="10" id="6BZ-Xs-oj4"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="76T-cx-SXn"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="top" secondItem="dtV-hy-vhh" secondAttribute="bottom" constant="10" id="8L5-fw-VgL"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="NXg-fM-Y5R"/>
+                            <constraint firstItem="Mmp-Lj-43N" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QOM-vL-hZc"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="RKc-RT-Pyr"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="UmE-Hy-yvu"/>
                             <constraint firstItem="raf-Uy-wy0" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="20" id="Xor-q0-Q68"/>
@@ -117,6 +135,7 @@
                     <connections>
                         <outlet property="closeButtonItem" destination="DFr-xU-dwx" id="5Tp-iW-W7f"/>
                         <outlet property="goalModleButton" destination="l6m-Ij-ltg" id="oPF-4c-ztt"/>
+                        <outlet property="habitNameLabel" destination="dtV-hy-vhh" id="ch8-lK-a41"/>
                         <outlet property="iconButton" destination="EeS-Ov-xwC" id="sfO-aW-0Ap"/>
                         <segue destination="uK4-cE-Uzw" kind="show" identifier="GoToGoalMode" id="POo-wK-zRz"/>
                         <segue destination="hz2-sg-jDK" kind="show" identifier="GoToIcon" id="VM9-hl-nGH"/>
@@ -218,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGE-1P-3at" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2177" y="-276"/>
+            <point key="canvasLocation" x="2972" y="339"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="OdA-Am-jxu">
@@ -270,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edz-eb-neP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3413" y="569"/>
+            <point key="canvasLocation" x="2206" y="-304"/>
         </scene>
         <!--Icon View Controller-->
         <scene sceneID="rYq-ll-qi6">

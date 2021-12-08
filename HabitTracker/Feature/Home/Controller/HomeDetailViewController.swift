@@ -34,7 +34,62 @@ class HomeDetailViewController: UIViewController {
     }
     
     @IBAction func plusTapped(_ sender: UIButton) {
-        
+        if var item = record {
+            let value = item.value
+            let goal = item.habit.goal
+            
+            if value == goal {
+                return
+            } else {
+                item.value += 1
+                
+                do {
+                    try FakeDataSource.shared.updateRecord(record: item)
+                    fetchDataFromDB(id: item.id)
+                } catch {
+                    print("👠")
+                }
+            }
+        }
+    }
+    
+    @IBAction func ididitTapped(_ sender: UIButton) {
+        if var item = record {
+            let value = item.value
+            let goal = item.habit.goal
+            
+            if value == goal {
+                return
+            } else {
+                item.value = goal
+                
+                do {
+                    try FakeDataSource.shared.updateRecord(record: item)
+                    fetchDataFromDB(id: item.id)
+                } catch {
+                    print("👠")
+                }
+            }
+        }
+    }
+    
+    @IBAction func undoTapped(_ sender: UIButton) {
+        if var item = record {
+            let value = item.value
+            
+            if value == 0 {
+                return
+            } else {
+                item.value = 0
+                
+                do {
+                    try FakeDataSource.shared.updateRecord(record: item)
+                    fetchDataFromDB(id: item.id)
+                } catch {
+                    print("👠")
+                }
+            }
+        }
     }
     
     // MARK: - Life Cycle

@@ -12,23 +12,23 @@ class FakeDataSource {
     
     private init() {
         habitData = [
-            Habit(id: UUID(), name: "Water", unitType: "ML", goal: 2000, icon: "💦", color: "", quickAdd1: 200, quickAdd2: 300, quickAdd3: 500, quickAdd4: 600),
-            Habit(id: UUID(), name: "Yoga", unitType: "Mins", goal: 60, icon: "🧘🏻", color: "", quickAdd1: 10, quickAdd2: 30, quickAdd3: 40, quickAdd4: 60),
-            Habit(id: UUID(), name: "Eat Fruit", unitType: "Count", goal: 3, icon: "🍎", color: "", quickAdd1: 0, quickAdd2: 0, quickAdd3: 0, quickAdd4: 0)
+            Habit(id: UUID(), name: "Water", unitType: .ml, goal: 2000, icon: "💦"),
+            Habit(id: UUID(), name: "Yoga", unitType: .mins, goal: 60, icon: "🧘🏻"),
+            Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 3, icon: "🍎")
         ]
 
         recordData = [
-            Record(id: UUID(), habit: habitData[0], value: 2000, date: Date()),
-            Record(id: UUID(), habit: habitData[0], value: 2000, date: "2021-11-19".toDate()!),
-            Record(id: UUID(), habit: habitData[1], value: 30, date: "2021-1-23".toDate()!),
-            Record(id: UUID(), habit: habitData[1], value: 60, date: "2021-1-24".toDate()!),
-            Record(id: UUID(), habit: habitData[1], value: 10, date: "2021-1-25".toDate()!),
-            Record(id: UUID(), habit: habitData[1], value: 25, date: "2021-11-18".toDate()!),
-            Record(id: UUID(), habit: habitData[1], value: 30, date: Date()),
-            Record(id: UUID(), habit: habitData[2], value: 0, date: "2021-3-17".toDate()!),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-05".toDate()!),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: Date()),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-11-19".toDate()!)
+            Record(id: UUID(), habit: habitData[0], value: 2000, date: Date(), history: [500, 500, 500, 500]),
+            Record(id: UUID(), habit: habitData[0], value: 2000, date: "2021-11-19".toDate()!, history: [1000, 1000]),
+            Record(id: UUID(), habit: habitData[1], value: 30, date: "2021-1-23".toDate()!, history: [30]),
+            Record(id: UUID(), habit: habitData[1], value: 60, date: "2021-1-24".toDate()!, history: [30, 30]),
+            Record(id: UUID(), habit: habitData[1], value: 10, date: "2021-1-25".toDate()!, history: [10]),
+            Record(id: UUID(), habit: habitData[1], value: 25, date: "2021-11-18".toDate()!, history: [20, 5]),
+            Record(id: UUID(), habit: habitData[1], value: 30, date: Date(), history: [10 , 10 , 10]),
+            Record(id: UUID(), habit: habitData[2], value: 0, date: "2021-3-17".toDate()!, history: []),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-05".toDate()!, history: []),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: Date(), history: []),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-11-19".toDate()!, history: [])
         ]
     }
     
@@ -52,6 +52,24 @@ class FakeDataSource {
             }
         } else {
             throw FakeDataSourceError.recordIdIsNotExisted
+        }
+    }
+    
+    // insert record
+    func insertRecord(habit: Habit) {
+        let tempRecord = Record(id: UUID(), habit: habit, value: 0, date: Date(), history: [])
+        
+        recordData.append(tempRecord)
+    }
+    
+    //insert habit
+    func insertHabit(habit: Habit) -> Bool {
+        if habitData.firstIndex(where: { $0.id == habit.id }) != nil {
+            return false
+        } else {
+            habitData.append(habit)
+            insertRecord(habit: habit)
+            return true
         }
     }
 }

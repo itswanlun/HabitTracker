@@ -6,6 +6,8 @@ struct Record {
     var value: Int
     let date: Date
     
+    var history: Array<Int>
+    
     var isAchieve: Bool {
         value >= habit.goal
     }

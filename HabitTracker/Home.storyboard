@@ -139,7 +139,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="PjU-61-Rd6" userLabel="Quick Add One Stack View">
-                                <rect key="frame" x="48.5" y="528" width="317" height="30"/>
+                                <rect key="frame" x="48.5" y="643" width="317" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27k-UY-ljJ">
                                         <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
@@ -162,22 +162,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-wx-9Hd">
-                                <rect key="frame" x="0.0" y="568" width="414" height="245"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-wx-9Hd">
+                                <rect key="frame" x="16" y="683" width="382" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0i-gh-Aci" userLabel="Quick Add Two Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="z0i-gh-Aci" userLabel="Quick Add Two Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-cl-oVr" userLabel="Quick One Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="122.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKG-cl-oVr" userLabel="Quick One Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="xVn-p3-Pc6"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="quickoneTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="Tth-3b-dNm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEN-U1-ayJ" userLabel="Quick Two Button">
-                                                <rect key="frame" x="390" y="0.0" width="24" height="122.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEN-U1-ayJ" userLabel="Quick Two Button">
+                                                <rect key="frame" x="206" y="0.0" width="176" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="pIP-yA-ARy"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -186,19 +194,27 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIP-Yi-2bk" userLabel="Quick Add Three Stack View">
-                                        <rect key="frame" x="0.0" y="122.5" width="414" height="122.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TIP-Yi-2bk" userLabel="Quick Add Three Stack View">
+                                        <rect key="frame" x="0.0" y="80" width="382" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-fo-flJ" userLabel="Quick Three Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="122.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-fo-flJ" userLabel="Quick Three Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="DTG-IH-f2p"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="quickthreeTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="gpd-V1-An1"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-wK-Ffl" userLabel="Quick Four Button">
-                                                <rect key="frame" x="24" y="0.0" width="390" height="122.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-wK-Ffl" userLabel="Quick Four Button">
+                                                <rect key="frame" x="206" y="0.0" width="176" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="v6i-A2-2Qv"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -213,17 +229,16 @@
                         <viewLayoutGuide key="safeArea" id="5P4-0W-7Np"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5P4-0W-7Np" firstAttribute="trailing" secondItem="ZM7-wx-9Hd" secondAttribute="trailing" id="6tS-F5-LXe"/>
+                            <constraint firstItem="5P4-0W-7Np" firstAttribute="trailing" secondItem="ZM7-wx-9Hd" secondAttribute="trailing" constant="16" id="6tS-F5-LXe"/>
                             <constraint firstItem="ZM7-wx-9Hd" firstAttribute="top" secondItem="PjU-61-Rd6" secondAttribute="bottom" constant="10" id="DEA-Hh-CaB"/>
                             <constraint firstItem="4J7-eK-66i" firstAttribute="top" secondItem="5P4-0W-7Np" secondAttribute="top" constant="40" id="FaH-j2-Tbq"/>
                             <constraint firstItem="OXD-6P-jum" firstAttribute="centerY" secondItem="4J7-eK-66i" secondAttribute="centerY" id="HkE-Xi-dSt"/>
                             <constraint firstItem="5P4-0W-7Np" firstAttribute="trailing" secondItem="4J7-eK-66i" secondAttribute="trailing" constant="16" id="PZW-Gr-VoK"/>
                             <constraint firstItem="OXD-6P-jum" firstAttribute="centerX" secondItem="4J7-eK-66i" secondAttribute="centerX" id="VBj-sr-uCR"/>
                             <constraint firstItem="4J7-eK-66i" firstAttribute="leading" secondItem="5P4-0W-7Np" secondAttribute="leading" constant="16" id="jkg-Hv-bqh"/>
-                            <constraint firstItem="PjU-61-Rd6" firstAttribute="top" secondItem="4J7-eK-66i" secondAttribute="bottom" constant="100" id="kAl-Dv-I2P"/>
                             <constraint firstItem="PjU-61-Rd6" firstAttribute="centerX" secondItem="XJU-kP-flh" secondAttribute="centerX" id="mB2-zp-MGp"/>
                             <constraint firstItem="5P4-0W-7Np" firstAttribute="bottom" secondItem="ZM7-wx-9Hd" secondAttribute="bottom" id="vpf-9y-3ed"/>
-                            <constraint firstItem="ZM7-wx-9Hd" firstAttribute="leading" secondItem="5P4-0W-7Np" secondAttribute="leading" id="z2Q-uN-hk0"/>
+                            <constraint firstItem="ZM7-wx-9Hd" firstAttribute="leading" secondItem="5P4-0W-7Np" secondAttribute="leading" constant="16" id="z2Q-uN-hk0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A74-hl-VT2"/>
@@ -257,8 +272,8 @@
                                     <constraint firstAttribute="height" constant="300" id="oAO-Aa-ihT"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-Sf-MND">
-                                <rect key="frame" x="137" y="266" width="140.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-Sf-MND">
+                                <rect key="frame" x="207" y="278" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -303,11 +318,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="I did it!"/>
+                                        <connections>
+                                            <action selector="ididitTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="CgA-wm-zqY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eH-Wc-dtQ">
                                         <rect key="frame" x="0.0" y="31" width="414" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="Rfz-z9-yOv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -371,6 +392,9 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

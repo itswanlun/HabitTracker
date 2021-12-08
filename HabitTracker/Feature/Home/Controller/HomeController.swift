@@ -1,15 +1,23 @@
 import UIKit
 
 class HomeController: UIViewController {
-    
+    // MARK: - IBOutlet
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var homeTableView: UITableView!
-    var selectedDateRecord: [Record] = [] {
+    
+    var selectedDateUndoneRecord: [Record] = [] {
         didSet {
             homeTableView.reloadData()
         }
     }
+    
+    var selectedDateDoneRecord: [Record] = [] {
+        didSet {
+            homeTableView.reloadData()
+        }
+    }
+    
     var selectedDate = Date() {
         didSet {
             setupTitle(selectedDate)
@@ -18,6 +26,7 @@ class HomeController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func rightBarButtonItemTapped(_ sender: UIButton) {
         let previousDate = selectedDate
         if let currentSelectedDate = previousDate.addDay(1) {
@@ -32,6 +41,7 @@ class HomeController: UIViewController {
         }
     }
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //        title = "Today"
@@ -50,9 +60,13 @@ class HomeController: UIViewController {
             let destination = segue.destination as! HomeDetailMLViewController
             
             if let record = sender as? Record {
-                destination.item = record
+                destination.record = record
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        filterCurrentSelectedDateRecordData(selectedDate)
     }
 }
 
@@ -80,10 +94,36 @@ private extension HomeController {
     }
     
     func filterCurrentSelectedDateRecordData(_ date: Date) {
-        selectedDateRecord = []
+        selectedDateUndoneRecord = []
+        selectedDateDoneRecord = []
+        
+        /*
+         for Habit {
+            for records {
+                if record.date == date {
+                    if isAchieve {
+                        // insert to done
+                    } else {
+                        // insert to undone
+                    }
+                } else {
+                    // create a record
+                    // insert to undone
+                }
+            }
+         }
+        */
+        
         for record in FakeDataSource.shared.recordData {
-            if selectedDate.toString() == record.date.toString() {
-                selectedDateRecord.append(record)
+            switch record.isAchieve {
+            case true:
+                if selectedDate.toString() == record.date.toString() {
+                    selectedDateDoneRecord.append(record)
+                }
+            case false:
+                if selectedDate.toString() == record.date.toString() {
+                    selectedDateUndoneRecord.append(record)
+                }
             }
         }
     }
@@ -96,42 +136,63 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return selectedDateRecord.count
+            return selectedDateUndoneRecord.count
         } else {
-            return 0
+            return selectedDateDoneRecord.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
+                
+                return UITableViewCell()
+            }
             
-            return UITableViewCell()
+            let item = selectedDateUndoneRecord[indexPath.row]
+            
+            let percent = Int((Float(item.value)/Float(item.habit.goal)) * 100)
+            
+            cell.HabitName.text = "\(item.habit.name)"
+            cell.Record.text = "\(item.value)"
+            cell.Percent.text = "\(percent) %"
+            cell.icon.text = "\(item.habit.icon)"
+            
+            //        if let url = URL(string: item.habit.icon) {
+            //            cell.IconImageView.setImage(url :url)
+            //        }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
+                
+                return UITableViewCell()
+            }
+            
+            let item = selectedDateDoneRecord[indexPath.row]
+            
+            let percent = Int((Float(item.value)/Float(item.habit.goal)) * 100)
+            
+            cell.HabitName.text = "\(item.habit.name)"
+            cell.Record.text = "\(item.value)"
+            cell.Percent.text = "\(percent) %"
+            cell.icon.text = "\(item.habit.icon)"
+            
+            return cell
         }
-        
-        let item = selectedDateRecord[indexPath.row]
-        
-        let percent = Int((Float(item.value)/Float(item.habit.goal)) * 100)
-        
-        cell.HabitName.text = "\(item.habit.name)"
-        cell.Record.text = "\(item.value)"
-        cell.Percent.text = "\(percent) %"
-        cell.icon.text = "\(item.habit.icon)"
-        
-        //        if let url = URL(string: item.habit.icon) {
-        //            cell.IconImageView.setImage(url :url)
-        //        }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let record = selectedDateRecord[indexPath.row]
+        let record: Record
+        if indexPath.section == 0 {
+            record = selectedDateUndoneRecord[indexPath.row]
+        } else {
+            record = selectedDateDoneRecord[indexPath.row]
+        }
+        
         switch record.habit.unitType {
-            case "ML", "Mins":
-                self.performSegue(withIdentifier: "GoToHomeDetailML", sender: record)
-            case "Count":
-                self.performSegue(withIdentifier: "GoToHomeDetailCount", sender: record)
-        default:
+        case .ml, .mins:
+            self.performSegue(withIdentifier: "GoToHomeDetailML", sender: record)
+        case .count:
             self.performSegue(withIdentifier: "GoToHomeDetailCount", sender: record)
         }
     }
@@ -150,5 +211,5 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 60
         }
-    }
+    }    
 }
