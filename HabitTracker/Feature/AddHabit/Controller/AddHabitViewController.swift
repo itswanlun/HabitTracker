@@ -1,6 +1,7 @@
 import UIKit
 
 class AddHabitViewController: UIViewController {
+    @IBOutlet weak var habitNameTextField: UITextField!
     @IBOutlet weak var habitNameLabel: UILabel!
     @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var closeButtonItem: UIBarButtonItem!
@@ -53,7 +54,7 @@ class AddHabitViewController: UIViewController {
             return
         }
         
-        guard let habitname = habitNameLabel.text else {
+        guard let habitname = habitNameTextField.text else {
             showMessage(title: "Warning", message: "Please enter habit name")
             return
         }

@@ -13,12 +13,23 @@ class HomeDetailViewController: UIViewController {
     var record: Record?
     
     // MARK: - IBAction
+    @IBAction func leftBarButtonItem(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func rightBarButtonItem(_ sender: UIBarButtonItem) {
+        let ac = UIAlertController(title: "Habit Settings", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Habit Settings", style: .default, handler: openCurrentHabit))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+            present(ac, animated: true)
+    }
+    
     @IBAction func minusTapped(_ sender: UIButton) {
         if var item = record {
             let value = item.value
-            let goal = item.habit.goal
             
-            if value == goal || value == 0 {
+            if value == 0 {
                 return
             } else {
                 item.value -= 1
@@ -109,6 +120,16 @@ class HomeDetailViewController: UIViewController {
         
         updateProgress()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "GoToHabitCountSetting" {
+            let destination = segue.destination as! EditHabitCountViewController
+            
+            if let record = sender as? Record {
+                destination.record = record
+            }
+        }
+    }
 }
 
 // MARK: - Setup UI
@@ -136,5 +157,8 @@ extension HomeDetailViewController {
     private func setupProgress(value: Int, goal: Int) {
         ringProgressView.progress = Double(Float(value)/Float(goal))
     }
+    
+    private func openCurrentHabit(action: UIAlertAction) {
+        self.performSegue(withIdentifier: "GoToHabitCountSetting", sender: record)
+    }
 }
-

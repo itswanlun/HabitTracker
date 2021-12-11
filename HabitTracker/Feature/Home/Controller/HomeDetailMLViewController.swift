@@ -10,38 +10,42 @@ class HomeDetailMLViewController: UIViewController {
     @IBOutlet weak var quicktwoButton: UIButton!
     @IBOutlet weak var quickthreeButton: UIButton!
     @IBOutlet weak var quickfourButton: UIButton!
-    
+    @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     var record: Record?
-    //var previousQuickTapped = 0
 
     // MARK: - IBAction
-    @IBAction func returnTapped(_ sender: UIButton) {
-        if var item = record {
-            if item.value == 0 {
-                return
-            } else {
-                item.value -= item.history[item.history.count - 1]
-                item.history.remove(at: item.history.count - 1)
-                
-                if item.value == 0 {
-                    returnButton.isHidden = true
-                }
-                
-                do {
-                    try FakeDataSource.shared.updateRecord(record: item)
-                    fetchDataFromDB(id: item.id)
-                } catch {
-                    print("👠")
-                }
-            }
-        }
+//    @IBAction func returnTapped(_ sender: UIButton) {
+//        if var item = record {
+//            if item.value == 0 {
+//                return
+//            } else {
+//                item.value -= item.history[item.history.count - 1]
+//                item.history.remove(at: item.history.count - 1)
+//
+//                if item.value == 0 {
+//                    returnButton.isHidden = true
+//                }
+//
+//                do {
+//                    try FakeDataSource.shared.updateRecord(record: item)
+//                    fetchDataFromDB(id: item.id)
+//                } catch {
+//                    print("👠")
+//                }
+//            }
+//        }
+//    }
+    @IBAction func leftBarButtonItem(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func rightBarButtonItem(_ sender: UIBarButtonItem) {
+        
     }
     
     @IBAction func quickoneTapped(_ sender: UIButton) {
         if var item = record {
             returnButton.isHidden = false
-            item.history.append(item.habit.quickAdd1)
-            //previousQuickTapped = item.habit.quickAdd1
             item.value += item.habit.quickAdd1
             
             do {
@@ -56,7 +60,6 @@ class HomeDetailMLViewController: UIViewController {
     @IBAction func quicktwoTapped(_ sender: UIButton) {
         if var item = record {
             returnButton.isHidden = false
-            item.history.append(item.habit.quickAdd2)
             //previousQuickTapped = item.habit.quickAdd2
             item.value += item.habit.quickAdd2
             
@@ -72,8 +75,6 @@ class HomeDetailMLViewController: UIViewController {
     @IBAction func quickthreeTapped(_ sender: UIButton) {
         if var item = record {
             returnButton.isHidden = false
-            item.history.append(item.habit.quickAdd3)
-            //previousQuickTapped = item.habit.quickAdd3
             item.value += item.habit.quickAdd3
             
             do {
@@ -96,6 +97,16 @@ class HomeDetailMLViewController: UIViewController {
         
         if let record = record {
             fetchDataFromDB(id: record.id)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "GoToHabitMinsMLSetting" {
+            let destination = segue.destination as! EditHabitMinsMLViewController
+            
+            if let record = sender as? Record {
+                destination.record = record
+            }
         }
     }
     
@@ -130,9 +141,8 @@ extension HomeDetailMLViewController {
             quickthreeButton.setTitle("\(item.habit.quickAdd3)", for: .normal)
             quickfourButton.setTitle("\(item.habit.quickAdd4)", for: .normal)
             
-            if item.value == 0 {
-                returnButton.isHidden = true
-            }
+            returnButton.isHidden = true
+
         }
     }
     

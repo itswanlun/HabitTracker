@@ -44,9 +44,11 @@ class HomeController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        title = "Today"
         self.navigationItem.title = "Today"
         filterCurrentSelectedDateRecordData(selectedDate)
+        
+//        FakeDataSource.shared.habitData[2] = Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 66, icon: "🐵")
+//        print(FakeDataSource.shared.recordData)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,33 +99,22 @@ private extension HomeController {
         selectedDateUndoneRecord = []
         selectedDateDoneRecord = []
         
-        /*
-         for Habit {
-            for records {
-                if record.date == date {
-                    if isAchieve {
-                        // insert to done
+        for habit in FakeDataSource.shared.habitData {
+            var ishabitHasRecord = false
+            for record in FakeDataSource.shared.recordData {
+                if selectedDate.toString() == record.date.toString() && habit.id == record.habit.id {
+                    if record.isAchieve {
+                        selectedDateDoneRecord.append(record)
                     } else {
-                        // insert to undone
+                        selectedDateUndoneRecord.append(record)
                     }
-                } else {
-                    // create a record
-                    // insert to undone
+                    ishabitHasRecord = true
+                    break
                 }
             }
-         }
-        */
-        
-        for record in FakeDataSource.shared.recordData {
-            switch record.isAchieve {
-            case true:
-                if selectedDate.toString() == record.date.toString() {
-                    selectedDateDoneRecord.append(record)
-                }
-            case false:
-                if selectedDate.toString() == record.date.toString() {
-                    selectedDateUndoneRecord.append(record)
-                }
+            
+            if ishabitHasRecord == false {
+                selectedDateUndoneRecord.append(FakeDataSource.shared.insertRecord(habit: habit, date: date))
             }
         }
     }
@@ -211,5 +202,5 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 60
         }
-    }    
+    }
 }

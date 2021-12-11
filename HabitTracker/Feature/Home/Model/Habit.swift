@@ -1,11 +1,11 @@
 import Foundation
 
-struct Habit {
+class Habit {
     let id: UUID
-    let name: String
-    let unitType: GoalModeType
-    let goal: Int
-    let icon: String
+    var name: String
+    var unitType: GoalModeType
+    var goal: Int
+    var icon: String
     var quickAdd1: Int
     var quickAdd2: Int
     var quickAdd3: Int
@@ -35,5 +35,11 @@ struct Habit {
             self.quickAdd3 = 1000
             self.quickAdd4 = 2000
         }
+    }
+}
+
+extension Habit: CustomStringConvertible {
+    var description: String {
+        " - \(id)\n - \(name)\n - \(unitType.text)\n - \(goal)\n - \(icon)\n"
     }
 }

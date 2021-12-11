@@ -2,6 +2,7 @@ import Foundation
 
 enum FakeDataSourceError: Error {
     case recordIdIsNotExisted
+    case habitIdIsNotExisted
 }
 
 class FakeDataSource {
@@ -18,23 +19,31 @@ class FakeDataSource {
         ]
 
         recordData = [
-            Record(id: UUID(), habit: habitData[0], value: 2000, date: Date(), history: [500, 500, 500, 500]),
-            Record(id: UUID(), habit: habitData[0], value: 2000, date: "2021-11-19".toDate()!, history: [1000, 1000]),
-            Record(id: UUID(), habit: habitData[1], value: 30, date: "2021-1-23".toDate()!, history: [30]),
-            Record(id: UUID(), habit: habitData[1], value: 60, date: "2021-1-24".toDate()!, history: [30, 30]),
-            Record(id: UUID(), habit: habitData[1], value: 10, date: "2021-1-25".toDate()!, history: [10]),
-            Record(id: UUID(), habit: habitData[1], value: 25, date: "2021-11-18".toDate()!, history: [20, 5]),
-            Record(id: UUID(), habit: habitData[1], value: 30, date: Date(), history: [10 , 10 , 10]),
-            Record(id: UUID(), habit: habitData[2], value: 0, date: "2021-3-17".toDate()!, history: []),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-05".toDate()!, history: []),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: Date(), history: []),
-            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-11-19".toDate()!, history: [])
+            Record(id: UUID(), habit: habitData[0], value: 2000, date: Date()),
+            Record(id: UUID(), habit: habitData[0], value: 2000, date: "2021-11-19".toDate()!),
+            Record(id: UUID(), habit: habitData[1], value: 30, date: "2021-1-23".toDate()!),
+            Record(id: UUID(), habit: habitData[1], value: 60, date: "2021-1-24".toDate()!),
+            Record(id: UUID(), habit: habitData[1], value: 10, date: "2021-1-25".toDate()!),
+            Record(id: UUID(), habit: habitData[1], value: 25, date: "2021-11-18".toDate()!),
+            Record(id: UUID(), habit: habitData[1], value: 30, date: Date()),
+            Record(id: UUID(), habit: habitData[2], value: 0, date: "2021-3-17".toDate()!),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-3-05".toDate()!),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: Date()),
+            Record(id: UUID(), habit: habitData[2], value: 1, date: "2021-11-19".toDate()!)
         ]
     }
     
     // fetch record by id
     func fetchRecord(id: UUID) -> Record? {
         return recordData.first { $0.id == id }
+    }
+    
+    func fetchHabit(id: UUID) -> Habit? {
+        return habitData.first { $0.id == id }
+    }
+    
+    func isHabitExisted(id: UUID) -> Bool {
+        return fetchHabit(id: id) != nil
     }
     
     func isRecordExisted(id: UUID) -> Bool {
@@ -55,11 +64,29 @@ class FakeDataSource {
         }
     }
     
+    // updateHabit
+    func updateHabit(habit: Habit) throws {
+        if isHabitExisted(id: habit.id) {
+            // update
+            if let index = habitData.firstIndex(where: { $0.id == habit.id }) {
+//                habitData[index] = habit
+                habitData[index].name = habit.name
+                habitData[index].icon = habit.icon
+                habitData[index].goal = habit.goal
+            } else {
+                throw FakeDataSourceError.habitIdIsNotExisted
+            }
+        } else {
+            throw FakeDataSourceError.habitIdIsNotExisted
+        }
+    }
+    
     // insert record
-    func insertRecord(habit: Habit) {
-        let tempRecord = Record(id: UUID(), habit: habit, value: 0, date: Date(), history: [])
-        
+    func insertRecord(habit: Habit, date: Date) -> Record {
+        let tempRecord = Record(id: UUID(), habit: habit, value: 0, date: date)
+
         recordData.append(tempRecord)
+        return tempRecord
     }
     
     //insert habit
@@ -68,7 +95,6 @@ class FakeDataSource {
             return false
         } else {
             habitData.append(habit)
-            insertRecord(habit: habit)
             return true
         }
     }

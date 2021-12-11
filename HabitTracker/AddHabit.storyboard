@@ -51,27 +51,14 @@
                                     <action selector="GoalButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2lJ-g7-wjT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raf-Uy-wy0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej5-HV-IFB">
                                 <rect key="frame" x="16" y="303" width="382" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-rJ-wrr">
-                                <rect key="frame" x="16" y="342" width="382" height="30"/>
-                                <state key="normal" title="Color"/>
-                                <connections>
-                                    <segue destination="VD1-5e-wIC" kind="show" id="rqC-0w-Slc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej5-HV-IFB">
-                                <rect key="frame" x="16" y="392" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeS-Ov-xwC">
-                                <rect key="frame" x="16" y="431" width="382" height="30"/>
+                                <rect key="frame" x="16" y="342" width="382" height="30"/>
                                 <state key="normal" title="Icon"/>
                                 <connections>
                                     <action selector="IconButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ch3-6n-mvt"/>
@@ -99,29 +86,24 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Mmp-Lj-43N" secondAttribute="bottom" id="167-Jc-OVV"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="2BM-1G-cVM"/>
-                            <constraint firstItem="raf-Uy-wy0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5IM-qW-Pvw"/>
-                            <constraint firstItem="FVi-rJ-wrr" firstAttribute="top" secondItem="raf-Uy-wy0" secondAttribute="bottom" constant="10" id="6BZ-Xs-oj4"/>
+                            <constraint firstItem="Ej5-HV-IFB" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="20" id="4lj-p0-rUD"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="76T-cx-SXn"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="top" secondItem="dtV-hy-vhh" secondAttribute="bottom" constant="10" id="8L5-fw-VgL"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="NXg-fM-Y5R"/>
                             <constraint firstItem="Mmp-Lj-43N" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QOM-vL-hZc"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="RKc-RT-Pyr"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="UmE-Hy-yvu"/>
-                            <constraint firstItem="raf-Uy-wy0" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="20" id="Xor-q0-Q68"/>
-                            <constraint firstItem="Ej5-HV-IFB" firstAttribute="top" secondItem="FVi-rJ-wrr" secondAttribute="bottom" constant="20" id="ZMV-PD-cxQ"/>
+                            <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="W5v-UY-0LG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EeS-Ov-xwC" secondAttribute="trailing" constant="16" id="dVG-ZM-Q3H"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ej5-HV-IFB" secondAttribute="trailing" constant="16" id="dlp-hb-IFx"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="e4h-2C-HO5"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="e5U-WO-i52"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="eGV-KT-exb"/>
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="fTD-TC-LoK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FVi-rJ-wrr" secondAttribute="trailing" constant="16" id="gI6-74-Yxl"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="raf-Uy-wy0" secondAttribute="trailing" constant="16" id="j96-Kv-zmB"/>
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="top" secondItem="lzD-jf-Syp" secondAttribute="bottom" constant="20" id="njg-VI-zQ6"/>
                             <constraint firstItem="Ej5-HV-IFB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nwx-JX-d2O"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="top" secondItem="de8-Yr-yqZ" secondAttribute="bottom" constant="10" id="pLM-Lh-rFh"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="ufb-c1-e9y"/>
-                            <constraint firstItem="FVi-rJ-wrr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="x8b-oc-rDP"/>
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="xl5-Fb-96F"/>
                         </constraints>
                     </view>
@@ -136,6 +118,7 @@
                         <outlet property="closeButtonItem" destination="DFr-xU-dwx" id="5Tp-iW-W7f"/>
                         <outlet property="goalModleButton" destination="l6m-Ij-ltg" id="oPF-4c-ztt"/>
                         <outlet property="habitNameLabel" destination="dtV-hy-vhh" id="ch8-lK-a41"/>
+                        <outlet property="habitNameTextField" destination="lzD-jf-Syp" id="jlE-UQ-lCp"/>
                         <outlet property="iconButton" destination="EeS-Ov-xwC" id="sfO-aW-0Ap"/>
                         <segue destination="uK4-cE-Uzw" kind="show" identifier="GoToGoalMode" id="POo-wK-zRz"/>
                         <segue destination="hz2-sg-jDK" kind="show" identifier="GoToIcon" id="VM9-hl-nGH"/>
@@ -237,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGE-1P-3at" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="339"/>
+            <point key="canvasLocation" x="2572" y="-260"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="OdA-Am-jxu">
@@ -289,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edz-eb-neP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="-304"/>
+            <point key="canvasLocation" x="-1290" y="-832"/>
         </scene>
         <!--Icon View Controller-->
         <scene sceneID="rYq-ll-qi6">
@@ -339,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlr-Mk-T0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1855" y="889"/>
+            <point key="canvasLocation" x="2571" y="731"/>
         </scene>
     </scenes>
     <resources>
