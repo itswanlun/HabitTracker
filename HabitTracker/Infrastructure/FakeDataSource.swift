@@ -15,7 +15,7 @@ class FakeDataSource {
         habitData = [
             Habit(id: UUID(), name: "Water", unitType: .ml, goal: 2000, icon: "💦"),
             Habit(id: UUID(), name: "Yoga", unitType: .mins, goal: 60, icon: "🧘🏻"),
-            Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 3, icon: "🍎")
+            Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 10, icon: "🏈")
         ]
 
         recordData = [

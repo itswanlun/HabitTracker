@@ -22,6 +22,7 @@
 		0EAB38F2274946040054A51B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F1274946040054A51B /* TabBarController.swift */; };
 		0EAB38F4274A2B940054A51B /* AddHabit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB38F3274A2B940054A51B /* AddHabit.storyboard */; };
 		0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */; };
+		0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3147C27649B7B00757456 /* HabitStrategy.swift */; };
 		3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */; };
 		3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2D275B17260019D9BA /* ColorViewController.swift */; };
 		3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA30275B17530019D9BA /* IconViewController.swift */; };
@@ -59,6 +60,7 @@
 		0EAB38F1274946040054A51B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0EAB38F3274A2B940054A51B /* AddHabit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddHabit.storyboard; sourceTree = "<group>"; };
 		0EAB38F9274A2C400054A51B /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
+		0EF3147C27649B7B00757456 /* HabitStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStrategy.swift; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
 		3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeViewController.swift; sourceTree = "<group>"; };
 		3C54FA2D275B17260019D9BA /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		0EAB38F5274A2BC00054A51B /* AddHabit */ = {
 			isa = PBXGroup;
 			children = (
+				0EF3147B27649AD500757456 /* Strategy */,
 				0EAB38F7274A2BEB0054A51B /* View */,
 				0EAB38F6274A2BD90054A51B /* Controller */,
 			);
@@ -150,6 +153,14 @@
 				3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0EF3147B27649AD500757456 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				0EF3147C27649B7B00757456 /* HabitStrategy.swift */,
+			);
+			path = Strategy;
 			sourceTree = "<group>";
 		};
 		3CCAD04D271AA9680024E6D9 = {
@@ -418,6 +429,7 @@
 				0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */,
 				3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */,
 				0EAB38F2274946040054A51B /* TabBarController.swift in Sources */,
+				0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */,
 				0EAB38FA274A2C400054A51B /* AddHabitViewController.swift in Sources */,
 				3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */,
 				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,

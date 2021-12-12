@@ -40,7 +40,11 @@ class HomeDetailMLViewController: UIViewController {
     }
     
     @IBAction func rightBarButtonItem(_ sender: UIBarButtonItem) {
-        
+        let alertController = UIAlertController(title: "Habit Settings", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Habit Settings", style: .default, handler: openCurrentHabit))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        present(alertController, animated: true)
     }
     
     @IBAction func quickoneTapped(_ sender: UIButton) {
@@ -102,10 +106,10 @@ class HomeDetailMLViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "GoToHabitMinsMLSetting" {
-            let destination = segue.destination as! EditHabitMinsMLViewController
+            let destination = segue.destination as! AddHabitViewController
             
             if let record = sender as? Record {
-                destination.record = record
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
             }
         }
     }
@@ -162,5 +166,9 @@ extension HomeDetailMLViewController {
     
     private func setupProgress(value: Int, goal: Int) {
         ringProgressView.progress = Double(Float(value)/Float(goal))
+    }
+    
+    private func openCurrentHabit(action: UIAlertAction) {
+        self.performSegue(withIdentifier: "GoToHabitMinsMLSetting", sender: record)
     }
 }

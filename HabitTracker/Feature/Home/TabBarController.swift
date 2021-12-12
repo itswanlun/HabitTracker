@@ -25,16 +25,11 @@ class TabBarController: UITabBarController {
         let y = tabBar.frame.minY + 3
         let x = view.bounds.width/2 - width/2
         
-        
-        
         let menuButton = UIButton(frame: CGRect(x: x, y: y, width: width, height: height))
         menuButton.backgroundColor = UIColor.red
         let image = UIImage(systemName: "plus.circle.fill")?.withRenderingMode(.alwaysTemplate)
-//        menuButton.setImage(image, for: .normal)
         menuButton.setBackgroundImage(image, for: .normal)
         menuButton.tintColor = .lightGray
-//        menuButton.imageView?.contentMode = .scaleToFill
-//        menuButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         view.addSubview(menuButton)
     
@@ -44,9 +39,11 @@ class TabBarController: UITabBarController {
     }
     
     @objc private func menuButtonAction(sender: UIButton) {
-        let viewController = UIStoryboard(name: "AddHabit", bundle: nil).instantiateViewController(withIdentifier: "AddHabitNavigationController") as! UINavigationController
+        let viewController = UIStoryboard(name: "AddHabit", bundle: nil).instantiateViewController(withIdentifier: "AddHabitViewController") as! AddHabitViewController
+        viewController.strategy = CreateHabitStrategy()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
         
-        self.present(viewController, animated: true, completion: nil)
-        
+        self.present(navigationController, animated: true, completion: nil)
     }
 }

@@ -18,11 +18,11 @@ class HomeDetailViewController: UIViewController {
     }
     
     @IBAction func rightBarButtonItem(_ sender: UIBarButtonItem) {
-        let ac = UIAlertController(title: "Habit Settings", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(UIAlertAction(title: "Habit Settings", style: .default, handler: openCurrentHabit))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            present(ac, animated: true)
+        let alertController = UIAlertController(title: "Habit Settings", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Habit Settings", style: .default, handler: openCurrentHabit))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        present(alertController, animated: true)
     }
     
     @IBAction func minusTapped(_ sender: UIButton) {
@@ -123,10 +123,18 @@ class HomeDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "GoToHabitCountSetting" {
-            let destination = segue.destination as! EditHabitCountViewController
+            let destination = segue.destination as! AddHabitViewController
             
             if let record = sender as? Record {
-                destination.record = record
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
+            }
+//            if let record = sender as? Record {
+//                destination.record = record
+//            }
+        } else if segue.identifier  == "GoToHabitMinsMLSetting" {
+            let destination = segue.destination as! AddHabitViewController
+            if let record = sender as? Record {
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
             }
         }
     }

@@ -28,6 +28,7 @@ class GoalModeViewController: UIViewController {
     @IBOutlet weak var enterValueTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
+    var isGoalTypeEnable: Bool = true
     private let toolBar = UIToolbar()
     private let myPickerView = UIPickerView()
     private let fullScreenSize = UIScreen.main.bounds.size
@@ -96,6 +97,7 @@ extension GoalModeViewController {
         unitTextField.center = CGPoint(x: fullScreenSize.width * 0.5, y: fullScreenSize.height * 0.15)
         unitTextField.delegate = self
         unitTextField.text = currentUnitType.text
+        unitTextField.isUserInteractionEnabled = isGoalTypeEnable
     }
 }
 

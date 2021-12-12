@@ -1,29 +1,45 @@
 import UIKit
 
 class AddHabitViewController: UIViewController {
-    @IBOutlet weak var habitNameTextField: UITextField!
-    @IBOutlet weak var habitNameLabel: UILabel!
-    @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var closeButtonItem: UIBarButtonItem!
-    @IBAction func closeButtonItemTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+    @IBOutlet weak var habitNameTextField: UITextField!
+    @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var iconButton: UIButton!
-    var goal: Int? = 1
-    var icon: String?
-    var unitType: GoalModeType? = .count
+    
+    var strategy: HabitStrategy = CreateHabitStrategy()
+    var goal: Int = 1 {
+        didSet {
+            goalModleButton.setTitle("\(goal) \(unitType.text)", for: .normal)
+        }
+    }
+    var icon: String = "🍎" {
+        didSet {
+            iconButton.setTitle("\(icon)", for: .normal)
+        }
+    }
+    var unitType: GoalModeType = .count {
+        didSet {
+            goalModleButton.setTitle("\(goal) \(unitType.text)", for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         goalModleButton.layer.cornerRadius = 5
         goalModleButton.tintColor = UIColor.mainBlack
+        
+        hideCloseButton(strategy.isCancelButtonHidden())
+        
+        updateFieldValuesIfNeed(strategy.habitID)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "GoToGoalMode" {
             let destination = segue.destination as! GoalModeViewController
             destination.delegate = self
+            destination.currentGoal = goal
+            destination.currentUnitType = unitType
+            destination.isGoalTypeEnable = strategy.isGoalTypeEnable()
         } else if segue.identifier == "GoToIcon" {
             let destinationIcon = segue.destination as! IconViewController
             destinationIcon.delegate = self
@@ -39,32 +55,32 @@ class AddHabitViewController: UIViewController {
     }
     
     @IBAction func saveHabitTapped(_ sender: UIButton) {
-        guard let goal = goal else {
-            showMessage(title: "Warning", message: "Please fill out the goal")
-            return
-        }
-        
-        guard let unitType = unitType else {
-            showMessage(title: "Warning", message: "Please fill out the unit")
-            return
-        }
-        
-        guard let icon = icon else {
-            showMessage(title: "Warning", message: "Please select an icon")
-            return
-        }
-        
-        guard let habitname = habitNameTextField.text else {
+        guard let habitname = habitNameTextField.text, !habitname.isEmpty else {
             showMessage(title: "Warning", message: "Please enter habit name")
             return
         }
         
-        let habit = Habit(id: UUID(), name: habitname, unitType: unitType, goal: goal, icon: icon)
+        if let habitID = strategy.habitID {
+            let habit = Habit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
+            
+            do {
+                try FakeDataSource.shared.updateHabit(habit: habit)
+                
+                self.navigationController?.popToRootViewController(animated: true)
+            } catch {
+                print("👠")
+            }
+        } else {
+            let habit = Habit(id: UUID(), name: habitname, unitType: unitType, goal: goal, icon: icon)
 
-
-        if FakeDataSource.shared.insertHabit(habit: habit) {
-            dismiss(animated: true, completion: nil)
+            if FakeDataSource.shared.insertHabit(habit: habit) {
+                dismiss(animated: true, completion: nil)
+            }
         }
+    }
+    
+    @IBAction func closeButtonItemTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     private func showMessage(title: String? = nil, message: String? = nil) {
@@ -73,6 +89,30 @@ class AddHabitViewController: UIViewController {
         controller.addAction(okAction)
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    private func updateFieldValuesIfNeed(_ habitID: UUID?) {
+        if let id = habitID, let habit = FakeDataSource.shared.fetchHabit(id: id) {
+            self.goal = habit.goal
+            self.icon = habit.icon
+            self.unitType = habit.unitType
+            
+            habitNameTextField.text = habit.name
+            
+        }
+    }
+}
+
+// MARK: - Setup UI
+extension AddHabitViewController {
+    private func hideCloseButton(_ isHidden: Bool) {
+        if isHidden {
+            closeButtonItem.isEnabled = false
+            closeButtonItem.tintColor = .clear
+        }else{
+            closeButtonItem.isEnabled = true
+            closeButtonItem.tintColor = nil
+        }
     }
 }
 
