@@ -215,8 +215,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="v6i-A2-2Qv"/>
                                                 </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Other"/>
                                                 <connections>
                                                     <action selector="quickfourTapped:" destination="wUW-oa-bR6" eventType="touchUpInside" id="7GC-Sa-9be"/>
                                                 </connections>
@@ -419,7 +420,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vEL-Yg-B8T"/>
+        <segue reference="SC3-bL-NrS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="121"/>

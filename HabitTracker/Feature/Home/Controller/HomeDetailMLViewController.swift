@@ -12,29 +12,29 @@ class HomeDetailMLViewController: UIViewController {
     @IBOutlet weak var quickfourButton: UIButton!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     var record: Record?
-
+    
     // MARK: - IBAction
-//    @IBAction func returnTapped(_ sender: UIButton) {
-//        if var item = record {
-//            if item.value == 0 {
-//                return
-//            } else {
-//                item.value -= item.history[item.history.count - 1]
-//                item.history.remove(at: item.history.count - 1)
-//
-//                if item.value == 0 {
-//                    returnButton.isHidden = true
-//                }
-//
-//                do {
-//                    try FakeDataSource.shared.updateRecord(record: item)
-//                    fetchDataFromDB(id: item.id)
-//                } catch {
-//                    print("👠")
-//                }
-//            }
-//        }
-//    }
+    //    @IBAction func returnTapped(_ sender: UIButton) {
+    //        if var item = record {
+    //            if item.value == 0 {
+    //                return
+    //            } else {
+    //                item.value -= item.history[item.history.count - 1]
+    //                item.history.remove(at: item.history.count - 1)
+    //
+    //                if item.value == 0 {
+    //                    returnButton.isHidden = true
+    //                }
+    //
+    //                do {
+    //                    try FakeDataSource.shared.updateRecord(record: item)
+    //                    fetchDataFromDB(id: item.id)
+    //                } catch {
+    //                    print("👠")
+    //                }
+    //            }
+    //        }
+    //    }
     @IBAction func leftBarButtonItem(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -91,6 +91,34 @@ class HomeDetailMLViewController: UIViewController {
     }
     
     @IBAction func quickfourTapped(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter value", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Enter value"
+        }
+        
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            if var item = self.record,
+               let textField = alertController.textFields?.first,
+               let text = textField.text,
+               let value = Int(text) {
+                item.value += value
+                
+                do {
+                    try FakeDataSource.shared.updateRecord(record: item)
+                    self.fetchDataFromDB(id: item.id)
+                } catch {
+                    print("👠")
+                }
+            }
+            
+            //guard let textFields = alterController.textFields else { return }
+            //dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
     }
     
     
@@ -143,10 +171,10 @@ extension HomeDetailMLViewController {
             quickoneButton.setTitle("\(item.habit.quickAdd1)", for: .normal)
             quicktwoButton.setTitle("\(item.habit.quickAdd2)", for: .normal)
             quickthreeButton.setTitle("\(item.habit.quickAdd3)", for: .normal)
-            quickfourButton.setTitle("\(item.habit.quickAdd4)", for: .normal)
+            quickfourButton.setTitle("Other", for: .normal)
             
             returnButton.isHidden = true
-
+            
         }
     }
     
