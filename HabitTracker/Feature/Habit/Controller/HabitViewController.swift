@@ -1,6 +1,6 @@
 import UIKit
 
-class AddHabitViewController: UIViewController {
+class HabitViewController: UIViewController {
     @IBOutlet weak var closeButtonItem: UIBarButtonItem!
     @IBOutlet weak var habitNameTextField: UITextField!
     @IBOutlet weak var goalModleButton: UIButton!
@@ -104,7 +104,7 @@ class AddHabitViewController: UIViewController {
 }
 
 // MARK: - Setup UI
-extension AddHabitViewController {
+extension HabitViewController {
     private func hideCloseButton(_ isHidden: Bool) {
         if isHidden {
             closeButtonItem.isEnabled = false
@@ -116,7 +116,7 @@ extension AddHabitViewController {
     }
 }
 
-extension AddHabitViewController: GoalModeViewControllerDelegate {
+extension HabitViewController: GoalModeViewControllerDelegate {
     func goalMode(_ viewController: GoalModeViewController, receivedUnit unit: GoalModeType, reveovedGoal goal: Int) {
         self.goal = goal
         self.unitType = unit
@@ -125,7 +125,7 @@ extension AddHabitViewController: GoalModeViewControllerDelegate {
     }
 }
 
-extension AddHabitViewController: IconViewControllerDelegate {
+extension HabitViewController: IconViewControllerDelegate {
     func Icon(_ viewController: IconViewController, receivedIcon icon: String) {
         print(icon)
         self.icon = icon

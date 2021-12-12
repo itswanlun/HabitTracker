@@ -387,10 +387,10 @@
             </objects>
             <point key="canvasLocation" x="1974" y="-378"/>
         </scene>
-        <!--AddHabit-->
+        <!--Habit-->
         <scene sceneID="imm-B3-yUM">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddHabit" id="g40-m7-zXF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Habit" id="g40-m7-zXF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rxm-vL-jpL"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B11-wn-Ny9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -106,7 +106,7 @@ class HomeDetailMLViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "GoToHabitMinsMLSetting" {
-            let destination = segue.destination as! AddHabitViewController
+            let destination = segue.destination as! HabitViewController
             
             if let record = sender as? Record {
                 destination.strategy = EditHabitStrategy(habitID: record.habit.id)

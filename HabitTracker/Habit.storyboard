@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Habit View Controller-->
+        <!--Habit View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddHabitViewController" id="Y6W-OH-hqX" customClass="AddHabitViewController" customModule="HabitTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HabitViewController" id="Y6W-OH-hqX" customClass="HabitViewController" customModule="HabitTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edz-eb-neP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1290" y="-832"/>
+            <point key="canvasLocation" x="2733" y="-284"/>
         </scene>
         <!--Icon View Controller-->
         <scene sceneID="rYq-ll-qi6">

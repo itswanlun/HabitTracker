@@ -39,7 +39,7 @@ class TabBarController: UITabBarController {
     }
     
     @objc private func menuButtonAction(sender: UIButton) {
-        let viewController = UIStoryboard(name: "AddHabit", bundle: nil).instantiateViewController(withIdentifier: "AddHabitViewController") as! AddHabitViewController
+        let viewController = UIStoryboard(name: "AddHabit", bundle: nil).instantiateViewController(withIdentifier: "HabitViewController") as! HabitViewController
         viewController.strategy = CreateHabitStrategy()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
