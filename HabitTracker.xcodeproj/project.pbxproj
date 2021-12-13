@@ -10,6 +10,7 @@
 		0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */; };
 		0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5075FB275F8C63005BE576 /* FakeDataSource.swift */; };
 		0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6109FE272568D5003F4766 /* CalendarViewController.swift */; };
+		0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */; };
 		0E8D7081275DB736003A8916 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */; };
 		0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */; };
 		0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38ED2747CF2F0054A51B /* String+Ext.swift */; };
@@ -43,6 +44,7 @@
 		0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailMLViewController.swift; sourceTree = "<group>"; };
 		0E5075FB275F8C63005BE576 /* FakeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSource.swift; sourceTree = "<group>"; };
 		0E6109FE272568D5003F4766 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		0EAB38ED2747CF2F0054A51B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */,
 				3C54FA2D275B17260019D9BA /* ColorViewController.swift */,
 				3C54FA30275B17530019D9BA /* IconViewController.swift */,
+				0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				3CCAD09A271C0F450024E6D9 /* Record.swift in Sources */,
 				0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */,
 				0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */,
+				0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */,
 				3CCAD097271C05B00024E6D9 /* HomeUITableViewCell.swift in Sources */,
 				3CCAD091271BF72F0024E6D9 /* Habit.swift in Sources */,
 				0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */,

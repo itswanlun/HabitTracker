@@ -5,6 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,12 +21,29 @@
                     </tabBar>
                     <connections>
                         <segue destination="aW5-Jg-209" kind="relationship" relationship="viewControllers" id="EZN-9d-w0E"/>
+                        <segue destination="OTK-r4-RXq" kind="relationship" relationship="viewControllers" id="cho-za-EtW"/>
                         <segue destination="g5h-6w-kmo" kind="relationship" relationship="viewControllers" id="dMh-c0-A5O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02s-gY-zwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1220" y="-356"/>
+        </scene>
+        <!--New Habit View Controller-->
+        <scene sceneID="cv9-hU-EaR">
+            <objects>
+                <viewController id="OTK-r4-RXq" customClass="NewHabitViewController" customModule="HabitTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jmU-77-Q8S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Uf4-Ua-pED"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="plus.circle.fill" catalog="system" id="5xP-pa-E8M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U24-Oo-5wP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="-356"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="BOu-t5-Ie4">
@@ -52,5 +71,9 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
