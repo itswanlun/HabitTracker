@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E09AC102768B5EA0056ED1E /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E09AC0E2768B5EA0056ED1E /* HabitTracker.xcdatamodeld */; };
 		0E0BFFE8276858E5001C4298 /* RecordMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5135492768551C005B0E32 /* RecordMO+CoreDataProperties.swift */; };
 		0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */; };
 		0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5075FB275F8C63005BE576 /* FakeDataSource.swift */; };
@@ -22,7 +23,6 @@
 		0EAB38F2274946040054A51B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F1274946040054A51B /* TabBarController.swift */; };
 		0EAB38F4274A2B940054A51B /* Habit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB38F3274A2B940054A51B /* Habit.storyboard */; };
 		0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* HabitViewController.swift */; };
-		0EB8B2772767982B007EACCD /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8B2752767982B007EACCD /* HabitTracker.xcdatamodeld */; };
 		0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3147C27649B7B00757456 /* HabitStrategy.swift */; };
 		3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */; };
 		3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2D275B17260019D9BA /* ColorViewController.swift */; };
@@ -46,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E09AC0F2768B5EA0056ED1E /* HabitTracker 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HabitTracker 3.xcdatamodel"; sourceTree = "<group>"; };
 		0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailMLViewController.swift; sourceTree = "<group>"; };
 		0E5075FB275F8C63005BE576 /* FakeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSource.swift; sourceTree = "<group>"; };
 		0E5135482768551C005B0E32 /* RecordMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -61,10 +62,7 @@
 		0EAB38F1274946040054A51B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0EAB38F3274A2B940054A51B /* Habit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Habit.storyboard; sourceTree = "<group>"; };
 		0EAB38F9274A2C400054A51B /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
-		0EB8B2762767982B007EACCD /* HabitTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitTracker.xcdatamodel; sourceTree = "<group>"; };
 		0EB8B27927679E96007EACCD /* RecordMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0EB8B28127683F34007EACCD /* HabitTracker 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HabitTracker 2.xcdatamodel"; sourceTree = "<group>"; };
-		0EB8B28227685457007EACCD /* HabitTracker 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HabitTracker 3.xcdatamodel"; sourceTree = "<group>"; };
 		0EF3147C27649B7B00757456 /* HabitStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStrategy.swift; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
 		3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +189,7 @@
 		3CCAD04D271AA9680024E6D9 = {
 			isa = PBXGroup;
 			children = (
-				0EB8B2752767982B007EACCD /* HabitTracker.xcdatamodeld */,
+				0E09AC0E2768B5EA0056ED1E /* HabitTracker.xcdatamodeld */,
 				3CCAD058271AA9680024E6D9 /* HabitTracker */,
 				3CCAD057271AA9680024E6D9 /* Products */,
 				A4038716856D65A007A0377D /* Pods */,
@@ -456,6 +454,7 @@
 				0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */,
 				0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */,
 				3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */,
+				0E09AC102768B5EA0056ED1E /* HabitTracker.xcdatamodeld in Sources */,
 				0E51354F2768551C005B0E32 /* HabitMO+CoreDataProperties.swift in Sources */,
 				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,
 				3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */,
@@ -463,7 +462,6 @@
 				3CCAD09E271C1FCE0024E6D9 /* UIImageView+Ext.swift in Sources */,
 				3C54FA3C275B2DCB0019D9BA /* Color+Ext.swift in Sources */,
 				3C54FA38275B1AF70019D9BA /* IconCollectionViewCell.swift in Sources */,
-				0EB8B2772767982B007EACCD /* HabitTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,14 +667,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0EB8B2752767982B007EACCD /* HabitTracker.xcdatamodeld */ = {
+		0E09AC0E2768B5EA0056ED1E /* HabitTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0EB8B28227685457007EACCD /* HabitTracker 3.xcdatamodel */,
-				0EB8B28127683F34007EACCD /* HabitTracker 2.xcdatamodel */,
-				0EB8B2762767982B007EACCD /* HabitTracker.xcdatamodel */,
+				0E09AC0F2768B5EA0056ED1E /* HabitTracker 3.xcdatamodel */,
 			);
-			currentVersion = 0EB8B28227685457007EACCD /* HabitTracker 3.xcdatamodel */;
+			currentVersion = 0E09AC0F2768B5EA0056ED1E /* HabitTracker 3.xcdatamodel */;
 			path = HabitTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

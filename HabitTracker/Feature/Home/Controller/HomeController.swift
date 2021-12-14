@@ -49,6 +49,8 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        RecordMO.deleteAllData()
+        
         self.navigationItem.title = "Today"
         selectData()
         filterCurrentSelectedDateRecordData(selectedDate)
@@ -109,7 +111,7 @@ private extension HomeController {
         for habit in habitData {
             var isHabitHasRecord = false
             for record in recordData {
-                if selectedDate == record.date && habit == record.habit {
+                if selectedDate.toString() == record.date.toString() && habit == record.habit {
                     if record.isAchieve {
                         selectedDateDoneRecord.append(record)
                     } else {
@@ -117,18 +119,23 @@ private extension HomeController {
                     }
                     isHabitHasRecord = true
                     break
+                } else {
+                    
                 }
             }
 
-//            if isHabitHasRecord == false {
-//                if let record = RecordMO.insertRecord(habit: habit, date: date) {
-//                    selectedDateUndoneRecord.append(record)
-//                }
-//            }
+            if isHabitHasRecord == false {
+                if let record = RecordMO.insertRecord(habit: habit, date: date) {
+                    selectedDateUndoneRecord.append(record)
+                }
+            }
         }
     }
 
     func selectData() {
+//        HabitMO.deleteAllData()
+//        RecordMO.deleteAllData()
+        
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
             let requestRecord: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
@@ -139,12 +146,10 @@ private extension HomeController {
                 habitData = try context.fetch(requestHabit)
                 recordData = try context.fetch(requestRecord)
                 
-//                HabitMO.deleteAllData()
-//                RecordMO.deleteAllData()
-                
+                print("-------------------")
                 print(habitData)
+                print(recordData.map { $0.id })
                 print("-------------------\n")
-                print(recordData)
             } catch {
                 print("Failed to fetch")
             }

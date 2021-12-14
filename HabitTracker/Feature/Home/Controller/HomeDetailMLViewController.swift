@@ -1,5 +1,6 @@
 import UIKit
 import MKRingProgressView
+import CoreData
 
 class HomeDetailMLViewController: UIViewController {
     // MARK: - IBOutlet
@@ -14,27 +15,6 @@ class HomeDetailMLViewController: UIViewController {
     var record: RecordMO?
     
     // MARK: - IBAction
-    //    @IBAction func returnTapped(_ sender: UIButton) {
-    //        if var item = record {
-    //            if item.value == 0 {
-    //                return
-    //            } else {
-    //                item.value -= item.history[item.history.count - 1]
-    //                item.history.remove(at: item.history.count - 1)
-    //
-    //                if item.value == 0 {
-    //                    returnButton.isHidden = true
-    //                }
-    //
-    //                do {
-    //                    try FakeDataSource.shared.updateRecord(record: item)
-    //                    fetchDataFromDB(id: item.id)
-    //                } catch {
-    //                    print("👠")
-    //                }
-    //            }
-    //        }
-    //    }
     @IBAction func leftBarButtonItem(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -150,8 +130,6 @@ class HomeDetailMLViewController: UIViewController {
         let record = RecordMO.fetchRecord(id: id)
         //let record = FakeDataSource.shared.fetchRecord(id: id)
         self.record = record
-        
-        print("🤓", id, record)
         
         updateProgress()
     }

@@ -24,13 +24,23 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectData()
+        
         calendarCollectionView.visibleDates() { visibleDates in
             self.setupMonthLabel(date: visibleDates.monthDates.first!.date)
         }
         
         calendarCollectionView.allowsMultipleSelection = true
+        calendarCollectionView.scrollToDate(Date(), animateScroll: false)
+        calendarCollectionView.showsHorizontalScrollIndicator = false
+        calendarCollectionView.showsVerticalScrollIndicator = false
+        
         appendHabit()
         selectRecordData(buttonindex: 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        selectData()
     }
     
     func setupMonthLabel(date: Date) {
@@ -154,8 +164,8 @@ extension CalendarViewController: JTACMonthViewDataSource, JTACMonthViewDelegate
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         
-        let startDate = formatter.date(from: "2021 01 01")!
-        let endDate = formatter.date(from: "2021 12 31")!
+        let startDate = formatter.date(from: "2000 01 01")!
+        let endDate = formatter.date(from: "2100 12 31")!
         
         let parameter = ConfigurationParameters(startDate: startDate,
                                                 endDate: endDate,

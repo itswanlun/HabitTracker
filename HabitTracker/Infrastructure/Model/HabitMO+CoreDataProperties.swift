@@ -66,51 +66,42 @@ extension HabitMO {
     
     static func fetchHabitbyId(id: UUID) -> HabitMO? {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return nil }
-
+        
         let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
         let context = appDelegate.persistentContainer.viewContext
-            
-            requestHabit.predicate = nil
-            let updateID = id
-            requestHabit.predicate = NSPredicate(format: "id == '\(updateID)'")
-
-            do {
-                let habitDatas = try context.fetch(requestHabit)
-                return habitDatas[0]
-            } catch {
-                print("Failed to fetch")
-                return nil
-            }
+        
+        requestHabit.predicate = NSPredicate(format: "%K == %@", "id", id as NSObject)
+        
+        do {
+            let habitDatas = try context.fetch(requestHabit)
+            return habitDatas[0]
+        } catch {
+            print("Failed to fetch")
+            return nil
+        }
     }
     
     static func updateHabit(id: UUID, name: String, unitType: GoalModeType, goal: Int, icon: String) throws {
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let request: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
-            let context = appDelegate.persistentContainer.viewContext
-            
-            request.predicate = nil
-            let updateID = id
-            request.predicate = NSPredicate(format: "id == '\(updateID)'")
-            
-            do {
-                var results = try context.fetch(request)
-                results[0].id = id
-                results[0].name = name
-                results[0].unitTypeEnum = unitType
-                results[0].goal = Int32(goal)
-                results[0].icon = icon
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
+        
+        let request: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        
+        request.predicate = NSPredicate(format: "%K == %@", "id", id as NSObject)
+        
+        do {
+            let results = try context.fetch(request)
+            if let result = results.first {
+                result.name = name
+                result.unitTypeEnum = unitType
+                result.goal = Int32(goal)
+                result.icon = icon
                 
-                do {
-                    try context.save()
-                    print(results[0])
-                } catch {
-                    print("Failed to update: createError")
-                }
-                
-            } catch {
-                print("Failed to update: fetchError")
+                try context.save()
             }
-       }
+        } catch {
+            print("Failed to update: fetchError")
+        }
     }
     
     static func deleteAllData() {
@@ -126,6 +117,7 @@ extension HabitMO {
                 let managedObjectData: NSManagedObject = managedObject as NSManagedObject
                 context.delete(managedObjectData)
             }
+            try context.save()
         } catch let error as NSError {
             print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
         }
