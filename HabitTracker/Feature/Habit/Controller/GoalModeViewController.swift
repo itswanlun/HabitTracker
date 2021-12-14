@@ -1,6 +1,6 @@
 import UIKit
 
-enum GoalModeType {
+enum GoalModeType: Int32 {
     case count
     case mins
     case ml

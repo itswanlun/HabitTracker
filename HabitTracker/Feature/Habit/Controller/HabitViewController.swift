@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class HabitViewController: UIViewController {
     @IBOutlet weak var closeButtonItem: UIBarButtonItem!
@@ -45,7 +46,7 @@ class HabitViewController: UIViewController {
             destinationIcon.delegate = self
         }
     }
-
+    
     @IBAction func GoalButtonTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "GoToGoalMode", sender: self)
     }
@@ -60,23 +61,39 @@ class HabitViewController: UIViewController {
             return
         }
         
+        // update
         if let habitID = strategy.habitID {
-            let habit = Habit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
-            
             do {
-                try FakeDataSource.shared.updateHabit(habit: habit)
-                
+                try HabitMO.updateHabit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
                 self.navigationController?.popToRootViewController(animated: true)
             } catch {
                 print("👠")
             }
-        } else {
-            let habit = Habit(id: UUID(), name: habitname, unitType: unitType, goal: goal, icon: icon)
-
-            if FakeDataSource.shared.insertHabit(habit: habit) {
+        // insert
+        } else  {
+            if HabitMO.insertHabit(name: habitname, unitType: unitType, goal: goal, icon: icon) {
                 dismiss(animated: true, completion: nil)
             }
         }
+        
+        //        if let habitID = strategy.habitID {
+        //            let habit = Habit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
+        //
+        //            do {
+        //                try FakeDataSource.shared.updateHabit(habit: habit)
+        //
+        //                self.navigationController?.popToRootViewController(animated: true)
+        //            } catch {
+        //                print("👠")
+        //            }
+        //        }
+        //        else {
+        //            let habit = Habit(id: UUID(), name: habitname, unitType: unitType, goal: goal, icon: icon)
+        //
+        //            if FakeDataSource.shared.insertHabit(habit: habit) {
+        //                dismiss(animated: true, completion: nil)
+        //            }
+        //        }
     }
     
     @IBAction func closeButtonItemTapped(_ sender: UIBarButtonItem) {
@@ -92,10 +109,10 @@ class HabitViewController: UIViewController {
     }
     
     private func updateFieldValuesIfNeed(_ habitID: UUID?) {
-        if let id = habitID, let habit = FakeDataSource.shared.fetchHabit(id: id) {
-            self.goal = habit.goal
+        if let id = habitID, let habit = HabitMO.fetchHabitbyId(id: id) {
+            self.goal = Int(habit.goal)
             self.icon = habit.icon
-            self.unitType = habit.unitType
+            self.unitType = habit.unitTypeEnum
             
             habitNameTextField.text = habit.name
             
@@ -120,7 +137,7 @@ extension HabitViewController: GoalModeViewControllerDelegate {
     func goalMode(_ viewController: GoalModeViewController, receivedUnit unit: GoalModeType, reveovedGoal goal: Int) {
         self.goal = goal
         self.unitType = unit
-
+        
         goalModleButton.setTitle("\(goal) \(unit)", for: .normal)
     }
 }

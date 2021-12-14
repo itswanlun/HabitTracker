@@ -7,6 +7,7 @@
 
 import UIKit
 import JTAppleCalendar
+import CoreData
 
 class CalendarViewController: UIViewController {
 
@@ -16,7 +17,10 @@ class CalendarViewController: UIViewController {
     let formatter = DateFormatter()
     private(set) var selectedHabit: Int = 0
     var buttonArr: [UIButton] = [UIButton]()
-    var selectedHabitData: [Record] = []
+    var selectedHabitData: [RecordMO] = []
+    
+    var habitData: [HabitMO] = []
+    var recordData: [RecordMO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +62,8 @@ class CalendarViewController: UIViewController {
     
     func selectRecordData(buttonindex: Int) {
         selectedHabitData = []
-        let habit = FakeDataSource.shared.habitData[buttonindex]
-        for record in FakeDataSource.shared.recordData {
+        let habit = habitData[buttonindex]
+        for record in recordData {
             if habit.id == record.habit.id {
                 selectedHabitData.append(record)
             }
@@ -83,7 +87,7 @@ class CalendarViewController: UIViewController {
 //        habitView.backgroundColor = .brown
 
         
-        for (index, record) in FakeDataSource.shared.habitData.enumerated() {
+        for (index, record) in habitData.enumerated() {
             
             let habitButton = UIButton()
             habitButton.setTitle(record.icon, for: .normal)
@@ -110,6 +114,22 @@ class CalendarViewController: UIViewController {
             //lbl.backgroundColor = .red
             
             habitListStackView.addArrangedSubview(habitButton)
+        }
+    }
+    
+    func selectData() {
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
+            let requestRecord: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
+
+            let context = appDelegate.persistentContainer.viewContext
+
+            do {
+                habitData = try context.fetch(requestHabit)
+                recordData = try context.fetch(requestRecord)
+            } catch {
+                print("Failed to fetch")
+            }
         }
     }
     

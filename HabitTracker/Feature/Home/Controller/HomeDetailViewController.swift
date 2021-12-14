@@ -10,7 +10,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet weak var ididitButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
     
-    var record: Record?
+    var record: RecordMO?
     
     // MARK: - IBAction
     @IBAction func leftBarButtonItem(_ sender: UIBarButtonItem) {
@@ -35,7 +35,8 @@ class HomeDetailViewController: UIViewController {
                 item.value -= 1
                 
                 do {
-                    try FakeDataSource.shared.updateRecord(record: item)
+                    //try FakeDataSource.shared.updateRecord(record: item)
+                    try RecordMO.updateRecord(record: item)
                     fetchDataFromDB(id: item.id)
                 } catch {
                     print("👠")
@@ -55,7 +56,8 @@ class HomeDetailViewController: UIViewController {
                 item.value += 1
                 
                 do {
-                    try FakeDataSource.shared.updateRecord(record: item)
+                    //try FakeDataSource.shared.updateRecord(record: item)
+                    try RecordMO.updateRecord(record: item)
                     fetchDataFromDB(id: item.id)
                 } catch {
                     print("👠")
@@ -75,7 +77,8 @@ class HomeDetailViewController: UIViewController {
                 item.value = goal
                 
                 do {
-                    try FakeDataSource.shared.updateRecord(record: item)
+                    //try FakeDataSource.shared.updateRecord(record: item)
+                    try RecordMO.updateRecord(record: item)
                     fetchDataFromDB(id: item.id)
                 } catch {
                     print("👠")
@@ -94,7 +97,8 @@ class HomeDetailViewController: UIViewController {
                 item.value = 0
                 
                 do {
-                    try FakeDataSource.shared.updateRecord(record: item)
+                    //try FakeDataSource.shared.updateRecord(record: item)
+                    try RecordMO.updateRecord(record: item)
                     fetchDataFromDB(id: item.id)
                 } catch {
                     print("👠")
@@ -115,7 +119,8 @@ class HomeDetailViewController: UIViewController {
     }
     
     func fetchDataFromDB(id: UUID) {
-        let record = FakeDataSource.shared.fetchRecord(id: id)
+        let record = RecordMO.fetchRecord(id: id)
+        //let record = FakeDataSource.shared.fetchRecord(id: id)
         self.record = record
         
         updateProgress()
@@ -125,7 +130,7 @@ class HomeDetailViewController: UIViewController {
         if segue.identifier  == "GoToHabitCountSetting" {
             let destination = segue.destination as! HabitViewController
             
-            if let record = sender as? Record {
+            if let record = sender as? RecordMO {
                 destination.strategy = EditHabitStrategy(habitID: record.habit.id)
             }
 //            if let record = sender as? Record {
@@ -133,7 +138,7 @@ class HomeDetailViewController: UIViewController {
 //            }
         } else if segue.identifier  == "GoToHabitMinsMLSetting" {
             let destination = segue.destination as! HabitViewController
-            if let record = sender as? Record {
+            if let record = sender as? RecordMO {
                 destination.strategy = EditHabitStrategy(habitID: record.habit.id)
             }
         }
@@ -150,8 +155,8 @@ extension HomeDetailViewController {
     
     private func updateProgress() {
         if let item = record {
-            setupProgressLabel(value: item.value, goal: item.habit.goal)
-            setupProgress(value: item.value, goal: item.habit.goal)
+            setupProgressLabel(value: Int(item.value), goal: Int(item.habit.goal))
+            setupProgress(value: Int(item.value), goal: Int(item.habit.goal))
         } else {
             setupProgressLabel(value: 0, goal: 0)
             setupProgress(value: 0, goal: 0)

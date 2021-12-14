@@ -11,7 +11,7 @@ class HomeDetailMLViewController: UIViewController {
     @IBOutlet weak var quickthreeButton: UIButton!
     @IBOutlet weak var quickfourButton: UIButton!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
-    var record: Record?
+    var record: RecordMO?
     
     // MARK: - IBAction
     //    @IBAction func returnTapped(_ sender: UIButton) {
@@ -53,7 +53,8 @@ class HomeDetailMLViewController: UIViewController {
             item.value += item.habit.quickAdd1
             
             do {
-                try FakeDataSource.shared.updateRecord(record: item)
+                //try FakeDataSource.shared.updateRecord(record: item)
+                try RecordMO.updateRecord(record: item)
                 fetchDataFromDB(id: item.id)
             } catch {
                 print("👠")
@@ -68,7 +69,8 @@ class HomeDetailMLViewController: UIViewController {
             item.value += item.habit.quickAdd2
             
             do {
-                try FakeDataSource.shared.updateRecord(record: item)
+                //try FakeDataSource.shared.updateRecord(record: item)
+                try RecordMO.updateRecord(record: item)
                 fetchDataFromDB(id: item.id)
             } catch {
                 print("👠")
@@ -82,7 +84,8 @@ class HomeDetailMLViewController: UIViewController {
             item.value += item.habit.quickAdd3
             
             do {
-                try FakeDataSource.shared.updateRecord(record: item)
+                //try FakeDataSource.shared.updateRecord(record: item)
+                try RecordMO.updateRecord(record: item)
                 fetchDataFromDB(id: item.id)
             } catch {
                 print("👠")
@@ -102,10 +105,11 @@ class HomeDetailMLViewController: UIViewController {
                let textField = alertController.textFields?.first,
                let text = textField.text,
                let value = Int(text) {
-                item.value += value
+                item.value += Int32(value)
                 
                 do {
-                    try FakeDataSource.shared.updateRecord(record: item)
+                    //try FakeDataSource.shared.updateRecord(record: item)
+                    try RecordMO.updateRecord(record: item)
                     self.fetchDataFromDB(id: item.id)
                 } catch {
                     print("👠")
@@ -136,15 +140,18 @@ class HomeDetailMLViewController: UIViewController {
         if segue.identifier  == "GoToHabitMinsMLSetting" {
             let destination = segue.destination as! HabitViewController
             
-            if let record = sender as? Record {
+            if let record = sender as? RecordMO {
                 destination.strategy = EditHabitStrategy(habitID: record.habit.id)
             }
         }
     }
     
     func fetchDataFromDB(id: UUID) {
-        let record = FakeDataSource.shared.fetchRecord(id: id)
+        let record = RecordMO.fetchRecord(id: id)
+        //let record = FakeDataSource.shared.fetchRecord(id: id)
         self.record = record
+        
+        print("🤓", id, record)
         
         updateProgress()
     }
@@ -180,8 +187,8 @@ extension HomeDetailMLViewController {
     
     private func updateProgress() {
         if let item = record {
-            setupProgressLabel(value: item.value, goal: item.habit.goal)
-            setupProgress(value: item.value, goal: item.habit.goal)
+            setupProgressLabel(value: Int(item.value), goal: Int(item.habit.goal))
+            setupProgress(value: Int(item.value), goal: Int(item.habit.goal))
         } else {
             setupProgressLabel(value: 0, goal: 0)
             setupProgress(value: 0, goal: 0)
