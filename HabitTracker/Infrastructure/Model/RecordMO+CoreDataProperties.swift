@@ -105,4 +105,25 @@ extension RecordMO {
             print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
         }
     }
+    
+    static func deleteRecord(id: UUID) -> Bool {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return false }
+        
+        let request: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        
+        request.predicate = NSPredicate(format: "%K == %@", "habit.id", id as NSObject)
+        
+        do {
+            let results = try context.fetch(request)
+            for result in results {
+                context.delete(result)
+            }
+            try context.save()
+            return true
+        } catch {
+            print("Failed to update: fetchError")
+            return false
+        }
+    }
 }

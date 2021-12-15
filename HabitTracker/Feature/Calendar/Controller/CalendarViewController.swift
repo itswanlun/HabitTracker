@@ -41,6 +41,8 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         selectData()
+        appendHabit()
+        selectRecordData(buttonindex: 0)
     }
     
     func setupMonthLabel(date: Date) {
@@ -96,9 +98,9 @@ class CalendarViewController: UIViewController {
 //        habitView.widthAnchor.constraint(equalToConstant: 100).isActive = true
 //        habitView.backgroundColor = .brown
 
-        
+        buttonArr = []
+        habitListStackView.removeAllArrangedSubviews()
         for (index, record) in habitData.enumerated() {
-            
             let habitButton = UIButton()
             habitButton.setTitle(record.icon, for: .normal)
             habitButton.layer.cornerRadius = 10

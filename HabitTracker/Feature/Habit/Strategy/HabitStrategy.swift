@@ -6,6 +6,7 @@ protocol HabitStrategy {
     
     func isCancelButtonHidden() -> Bool
     func isGoalTypeEnable() -> Bool
+    func isQuickActiosHidden() -> Bool
 }
 
 class CreateHabitStrategy: HabitStrategy {
@@ -16,6 +17,10 @@ class CreateHabitStrategy: HabitStrategy {
     }
     
     func isGoalTypeEnable() -> Bool {
+        return true
+    }
+    
+    func isQuickActiosHidden() -> Bool {
         return true
     }
 }
@@ -32,6 +37,10 @@ class EditHabitStrategy: HabitStrategy {
     }
     
     func isGoalTypeEnable() -> Bool {
+        return false
+    }
+    
+    func isQuickActiosHidden() -> Bool {
         return false
     }
 }

@@ -81,7 +81,7 @@ extension HabitMO {
         }
     }
     
-    static func updateHabit(id: UUID, name: String, unitType: GoalModeType, goal: Int, icon: String) throws {
+    static func updateHabit(id: UUID, name: String, unitType: GoalModeType, goal: Int, icon: String, quickAdd1: Int, quickAdd2: Int, quickAdd3: Int) throws {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
         
         let request: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
@@ -96,6 +96,9 @@ extension HabitMO {
                 result.unitTypeEnum = unitType
                 result.goal = Int32(goal)
                 result.icon = icon
+                result.quickAdd1 = Int32(quickAdd1)
+                result.quickAdd2 = Int32(quickAdd2)
+                result.quickAdd3 = Int32(quickAdd3)
                 
                 try context.save()
             }
@@ -120,6 +123,25 @@ extension HabitMO {
             try context.save()
         } catch let error as NSError {
             print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    static func deleteHabit(id: UUID) {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
+        
+        let request: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
+        let context = appDelegate.persistentContainer.viewContext
+        
+        request.predicate = NSPredicate(format: "%K == %@", "id", id as NSObject)
+        
+        do {
+            let results = try context.fetch(request)
+            if let result = results.first {
+                try context.delete(result)
+                try context.save()
+            }
+        } catch {
+            print("Failed to update: fetchError")
         }
     }
 }

@@ -2,10 +2,15 @@ import UIKit
 import CoreData
 
 class HabitViewController: UIViewController {
-    @IBOutlet weak var closeButtonItem: UIBarButtonItem!
+    // MARK: - IBOutlet
     @IBOutlet weak var habitNameTextField: UITextField!
     @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var iconButton: UIButton!
+    @IBOutlet weak var quickActionsLabel: UILabel!
+    
+    @IBOutlet weak var quickAddOneButton: UIButton!
+    @IBOutlet weak var quickAddTwoButton: UIButton!
+    @IBOutlet weak var quickAddThreeButton: UIButton!
     
     var strategy: HabitStrategy = CreateHabitStrategy()
     var goal: Int = 1 {
@@ -24,13 +29,57 @@ class HabitViewController: UIViewController {
         }
     }
     
+    var quickAdd1Button: Int = 5 {
+        didSet {
+            switch self.unitType {
+            case .mins:
+                self.quickAddOneButton.setTitle("\(quickAdd1Button)", for: .normal)
+            case .ml:
+                self.quickAddOneButton.setTitle("\(quickAdd1Button) ml", for: .normal)
+            case .count:
+                return
+            }
+        }
+    }
+    
+    var quickAdd2Button: Int = 10 {
+        didSet {
+            switch self.unitType {
+            case .mins:
+                self.quickAddTwoButton.setTitle("\(quickAdd2Button)", for: .normal)
+            case .ml:
+                self.quickAddTwoButton.setTitle("\(quickAdd2Button) ml", for: .normal)
+            case .count:
+                return
+            }
+        }
+    }
+    
+    var quickAdd3Button: Int = 15 {
+        didSet {
+            switch self.unitType {
+            case .mins:
+                self.quickAddThreeButton.setTitle("\(quickAdd3Button)", for: .normal)
+            case .ml:
+                self.quickAddThreeButton.setTitle("\(quickAdd3Button) ml", for: .normal)
+            case .count:
+                return
+            }
+        }
+    }
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         goalModleButton.layer.cornerRadius = 5
         goalModleButton.tintColor = UIColor.mainBlack
+        quickAddOneButton.layer.cornerRadius = 5
+        quickAddTwoButton.layer.cornerRadius = 5
+        quickAddThreeButton.layer.cornerRadius = 5
         
         hideCloseButton(strategy.isCancelButtonHidden())
-        
+        hideQuickActions(strategy.isQuickActiosHidden())
         updateFieldValuesIfNeed(strategy.habitID)
     }
     
@@ -47,6 +96,7 @@ class HabitViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func GoalButtonTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "GoToGoalMode", sender: self)
     }
@@ -64,40 +114,17 @@ class HabitViewController: UIViewController {
         // update
         if let habitID = strategy.habitID {
             do {
-                try HabitMO.updateHabit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
+                try HabitMO.updateHabit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon, quickAdd1: quickAdd1Button, quickAdd2: quickAdd2Button, quickAdd3: quickAdd3Button)
                 self.navigationController?.popToRootViewController(animated: true)
             } catch {
                 print("👠")
             }
-        // insert
+            // insert
         } else  {
             if HabitMO.insertHabit(name: habitname, unitType: unitType, goal: goal, icon: icon) {
                 dismiss(animated: true, completion: nil)
             }
         }
-        
-        //        if let habitID = strategy.habitID {
-        //            let habit = Habit(id: habitID, name: habitname, unitType: unitType, goal: goal, icon: icon)
-        //
-        //            do {
-        //                try FakeDataSource.shared.updateHabit(habit: habit)
-        //
-        //                self.navigationController?.popToRootViewController(animated: true)
-        //            } catch {
-        //                print("👠")
-        //            }
-        //        }
-        //        else {
-        //            let habit = Habit(id: UUID(), name: habitname, unitType: unitType, goal: goal, icon: icon)
-        //
-        //            if FakeDataSource.shared.insertHabit(habit: habit) {
-        //                dismiss(animated: true, completion: nil)
-        //            }
-        //        }
-    }
-    
-    @IBAction func closeButtonItemTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
     }
     
     private func showMessage(title: String? = nil, message: String? = nil) {
@@ -108,11 +135,66 @@ class HabitViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    @IBAction func quickAddOneButtonTapped(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter value", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in textField.placeholder = "Enter value" }
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            if let textField = alertController.textFields?.first,
+               let text = textField.text,
+               let value = Int(text) {
+                
+                self.quickAdd1Button = Int(value)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
+    
+    @IBAction func quickAddTwoButtonTapped(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter value", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in textField.placeholder = "Enter value" }
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            if let textField = alertController.textFields?.first,
+               let text = textField.text,
+               let value = Int(text) {
+                
+                self.quickAdd2Button = Int(value)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
+    
+    @IBAction func quickThreeButtonTapped(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter value", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in textField.placeholder = "Enter value" }
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            if let textField = alertController.textFields?.first,
+               let text = textField.text,
+               let value = Int(text) {
+                
+                self.quickAdd3Button = Int(value)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
+    
+    
     private func updateFieldValuesIfNeed(_ habitID: UUID?) {
         if let id = habitID, let habit = HabitMO.fetchHabitbyId(id: id) {
             self.goal = Int(habit.goal)
             self.icon = habit.icon
             self.unitType = habit.unitTypeEnum
+            self.quickAdd1Button = Int(habit.quickAdd1)
+            self.quickAdd2Button = Int(habit.quickAdd2)
+            self.quickAdd3Button = Int(habit.quickAdd3)
             
             habitNameTextField.text = habit.name
             
@@ -124,15 +206,45 @@ class HabitViewController: UIViewController {
 extension HabitViewController {
     private func hideCloseButton(_ isHidden: Bool) {
         if isHidden {
-            closeButtonItem.isEnabled = false
-            closeButtonItem.tintColor = .clear
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "♺", style: .plain, target: self, action: #selector(deleteHabitTapped))
+            //            closeButtonItem.isEnabled = false
+            //            closeButtonItem.tintColor = .clear
         }else{
-            closeButtonItem.isEnabled = true
-            closeButtonItem.tintColor = nil
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(closedTapped))
+            //            closeButtonItem.isEnabled = true
+            //            closeButtonItem.tintColor = nil
+        }
+    }
+    
+    private func hideQuickActions(_ isHidden: Bool) {
+        if isHidden {
+            quickActionsLabel.isHidden = true
+            quickAddOneButton.isHidden = true
+            quickAddTwoButton.isHidden = true
+            quickAddThreeButton.isHidden = true
+        } else {
+            quickActionsLabel.isHidden = false
+            quickAddOneButton.isHidden = false
+            quickAddTwoButton.isHidden = false
+            quickAddThreeButton.isHidden = false
+        }
+    }
+    
+    @objc func closedTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func deleteHabitTapped() {
+        if let habitID = strategy.habitID {
+            if RecordMO.deleteRecord(id: habitID) {
+                HabitMO.deleteHabit(id: habitID)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
     }
 }
 
+// MARK: - Delegate
 extension HabitViewController: GoalModeViewControllerDelegate {
     func goalMode(_ viewController: GoalModeViewController, receivedUnit unit: GoalModeType, reveovedGoal goal: Int) {
         self.goal = goal

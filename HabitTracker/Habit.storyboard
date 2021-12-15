@@ -64,6 +64,53 @@
                                     <action selector="IconButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ch3-6n-mvt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Actions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-r2-7wu">
+                                <rect key="frame" x="16" y="344" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SnR-Ub-w4u">
+                                <rect key="frame" x="16" y="383" width="382" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHV-nR-SUy">
+                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="BFA-O4-BGo"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="quickAddOneButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VuR-ne-QSc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-Kh-ixa">
+                                        <rect key="frame" x="130.5" y="0.0" width="121" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="e7L-fD-Erq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="quickAddTwoButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RVC-6w-2Yo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bru-TD-H9b">
+                                        <rect key="frame" x="261.5" y="0.0" width="120.5" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sXn-gn-sMG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="quickThreeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ro7-Ff-MD7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-Lj-43N">
                                 <rect key="frame" x="157" y="812" width="100" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,11 +136,15 @@
                             <constraint firstItem="Ej5-HV-IFB" firstAttribute="top" secondItem="l6m-Ij-ltg" secondAttribute="bottom" constant="20" id="4lj-p0-rUD"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="76T-cx-SXn"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="top" secondItem="dtV-hy-vhh" secondAttribute="bottom" constant="10" id="8L5-fw-VgL"/>
+                            <constraint firstItem="aC9-r2-7wu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="98D-V5-3vU"/>
+                            <constraint firstItem="SnR-Ub-w4u" firstAttribute="top" secondItem="aC9-r2-7wu" secondAttribute="bottom" constant="10" id="DJb-Go-i2m"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="NXg-fM-Y5R"/>
                             <constraint firstItem="Mmp-Lj-43N" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QOM-vL-hZc"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="RKc-RT-Pyr"/>
                             <constraint firstItem="lzD-jf-Syp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="UmE-Hy-yvu"/>
+                            <constraint firstItem="aC9-r2-7wu" firstAttribute="top" secondItem="EeS-Ov-xwC" secondAttribute="bottom" constant="16" id="VXH-PP-lcA"/>
                             <constraint firstItem="EeS-Ov-xwC" firstAttribute="top" secondItem="Ej5-HV-IFB" secondAttribute="bottom" constant="10" id="W5v-UY-0LG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aC9-r2-7wu" secondAttribute="trailing" constant="16" id="YNc-IA-Fw7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EeS-Ov-xwC" secondAttribute="trailing" constant="16" id="dVG-ZM-Q3H"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ej5-HV-IFB" secondAttribute="trailing" constant="16" id="dlp-hb-IFx"/>
                             <constraint firstItem="dtV-hy-vhh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="e4h-2C-HO5"/>
@@ -103,22 +154,23 @@
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="top" secondItem="lzD-jf-Syp" secondAttribute="bottom" constant="20" id="njg-VI-zQ6"/>
                             <constraint firstItem="Ej5-HV-IFB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nwx-JX-d2O"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="top" secondItem="de8-Yr-yqZ" secondAttribute="bottom" constant="10" id="pLM-Lh-rFh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SnR-Ub-w4u" secondAttribute="trailing" constant="16" id="sYJ-si-HcY"/>
                             <constraint firstItem="l6m-Ij-ltg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="ufb-c1-e9y"/>
                             <constraint firstItem="de8-Yr-yqZ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="xl5-Fb-96F"/>
+                            <constraint firstItem="SnR-Ub-w4u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zIn-Vh-sGQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WsS-sS-L3c">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="multiply" catalog="system" id="DFr-xU-dwx">
-                            <connections>
-                                <action selector="closeButtonItemTapped:" destination="Y6W-OH-hqX" id="qHE-CZ-0r5"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="multiply" catalog="system" id="DFr-xU-dwx"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="closeButtonItem" destination="DFr-xU-dwx" id="5Tp-iW-W7f"/>
                         <outlet property="goalModleButton" destination="l6m-Ij-ltg" id="oPF-4c-ztt"/>
                         <outlet property="habitNameTextField" destination="lzD-jf-Syp" id="jlE-UQ-lCp"/>
                         <outlet property="iconButton" destination="EeS-Ov-xwC" id="sfO-aW-0Ap"/>
+                        <outlet property="quickActionsLabel" destination="aC9-r2-7wu" id="MdJ-Jc-Ts6"/>
+                        <outlet property="quickAddOneButton" destination="XHV-nR-SUy" id="Wcr-oN-z1l"/>
+                        <outlet property="quickAddThreeButton" destination="Bru-TD-H9b" id="Bs7-bE-0lb"/>
+                        <outlet property="quickAddTwoButton" destination="yDO-Kh-ixa" id="fn2-69-w57"/>
                         <segue destination="uK4-cE-Uzw" kind="show" identifier="GoToGoalMode" id="POo-wK-zRz"/>
                         <segue destination="hz2-sg-jDK" kind="show" identifier="GoToIcon" id="VM9-hl-nGH"/>
                     </connections>
@@ -317,6 +369,9 @@
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

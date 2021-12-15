@@ -29,7 +29,7 @@ class HomeDetailMLViewController: UIViewController {
     
     @IBAction func quickoneTapped(_ sender: UIButton) {
         if var item = record {
-            returnButton.isHidden = false
+            returnButton.isHidden = true
             item.value += item.habit.quickAdd1
             
             do {
@@ -44,7 +44,7 @@ class HomeDetailMLViewController: UIViewController {
     
     @IBAction func quicktwoTapped(_ sender: UIButton) {
         if var item = record {
-            returnButton.isHidden = false
+            returnButton.isHidden = true
             //previousQuickTapped = item.habit.quickAdd2
             item.value += item.habit.quickAdd2
             
@@ -60,7 +60,7 @@ class HomeDetailMLViewController: UIViewController {
     
     @IBAction func quickthreeTapped(_ sender: UIButton) {
         if var item = record {
-            returnButton.isHidden = false
+            returnButton.isHidden = true
             item.value += item.habit.quickAdd3
             
             do {
@@ -95,10 +95,6 @@ class HomeDetailMLViewController: UIViewController {
                     print("👠")
                 }
             }
-            
-            //guard let textFields = alterController.textFields else { return }
-            //dismiss(animated: true, completion: nil)
-            
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))

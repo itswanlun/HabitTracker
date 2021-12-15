@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E09AC102768B5EA0056ED1E /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E09AC0E2768B5EA0056ED1E /* HabitTracker.xcdatamodeld */; };
+		0E09AC1427698F380056ED1E /* StackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09AC1327698F380056ED1E /* StackView+Ext.swift */; };
 		0E0BFFE8276858E5001C4298 /* RecordMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5135492768551C005B0E32 /* RecordMO+CoreDataProperties.swift */; };
 		0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */; };
 		0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5075FB275F8C63005BE576 /* FakeDataSource.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0E09AC0F2768B5EA0056ED1E /* HabitTracker 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HabitTracker 3.xcdatamodel"; sourceTree = "<group>"; };
+		0E09AC1327698F380056ED1E /* StackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Ext.swift"; sourceTree = "<group>"; };
 		0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailMLViewController.swift; sourceTree = "<group>"; };
 		0E5075FB275F8C63005BE576 /* FakeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSource.swift; sourceTree = "<group>"; };
 		0E5135482768551C005B0E32 /* RecordMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				0EAB38ED2747CF2F0054A51B /* String+Ext.swift */,
 				0EAB38EF2747E1E60054A51B /* Date+Ext.swift */,
 				3C54FA3B275B2DCB0019D9BA /* Color+Ext.swift */,
+				0E09AC1327698F380056ED1E /* StackView+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */,
 				0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */,
 				3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */,
+				0E09AC1427698F380056ED1E /* StackView+Ext.swift in Sources */,
 				0E09AC102768B5EA0056ED1E /* HabitTracker.xcdatamodeld in Sources */,
 				0E51354F2768551C005B0E32 /* HabitMO+CoreDataProperties.swift in Sources */,
 				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,
