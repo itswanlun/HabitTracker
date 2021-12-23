@@ -6,6 +6,7 @@ class HomeDetailMLViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var ringProgressView: RingProgressView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var returnButton: UIButton!
     @IBOutlet weak var quickoneButton: UIButton!
     @IBOutlet weak var quicktwoButton: UIButton!
@@ -117,7 +118,7 @@ class HomeDetailMLViewController: UIViewController {
             let destination = segue.destination as! HabitViewController
             
             if let record = sender as? RecordMO {
-                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id, unit: record.habit.unitTypeEnum)
             }
         }
     }
@@ -135,8 +136,8 @@ class HomeDetailMLViewController: UIViewController {
 extension HomeDetailMLViewController {
     private func setupUI() {
         ringProgressView.ringWidth = 20
-        ringProgressView.startColor = UIColor(rgb: 0x535953)
-        ringProgressView.endColor = UIColor(rgb: 0x535953)
+        ringProgressView.startColor = UIColor(rgb: 0xBFAE9F)
+        ringProgressView.endColor = UIColor(rgb: 0xBFAE9F)
         
         quickoneButton.layer.cornerRadius = 5
         quicktwoButton.layer.cornerRadius = 5
@@ -149,28 +150,64 @@ extension HomeDetailMLViewController {
         quickfourButton.tintColor = .white
         
         if let item = record {
-            quickoneButton.setTitle("\(item.habit.quickAdd1)", for: .normal)
-            quicktwoButton.setTitle("\(item.habit.quickAdd2)", for: .normal)
-            quickthreeButton.setTitle("\(item.habit.quickAdd3)", for: .normal)
-            quickfourButton.setTitle("Other", for: .normal)
+            self.navigationItem.setTitle(title: item.habit.name, subtitle: setupTitle(item.date))
+
+            switch item.habit.unitTypeEnum {
+            case .ml:
+                quickoneButton.setTitle("\(item.habit.quickAdd1)ml", for: .normal)
+                quicktwoButton.setTitle("\(item.habit.quickAdd2)ml", for: .normal)
+                quickthreeButton.setTitle("\(item.habit.quickAdd3)ml", for: .normal)
+                quickfourButton.setTitle("Other", for: .normal)
+            case .mins:
+                quickoneButton.setTitle("\(item.habit.quickAdd1)min", for: .normal)
+                quicktwoButton.setTitle("\(item.habit.quickAdd2)min", for: .normal)
+                quickthreeButton.setTitle("\(item.habit.quickAdd3)min", for: .normal)
+                quickfourButton.setTitle("Other", for: .normal)
+            case .count:
+                quickoneButton.setTitle("\(item.habit.quickAdd1)", for: .normal)
+                quicktwoButton.setTitle("\(item.habit.quickAdd2)", for: .normal)
+                quickthreeButton.setTitle("\(item.habit.quickAdd3)", for: .normal)
+                quickfourButton.setTitle("Other", for: .normal)
+            }
             
             returnButton.isHidden = true
-            
+        }
+    }
+    
+    func setupTitle(_ date: Date) -> String {
+        if date.isToday {
+            return  "Today"
+        } else if date.isYesterday {
+            return "Yesterday"
+        } else if date.isTomorrow {
+            return "Tomorrow"
+        } else {
+            return date.toString("MMM dd")
         }
     }
     
     private func updateProgress() {
         if let item = record {
-            setupProgressLabel(value: Int(item.value), goal: Int(item.habit.goal))
+            setupProgressLabel(value: Int(item.value), goal: Int(item.habit.goal), unit: item.habit.unitTypeEnum)
             setupProgress(value: Int(item.value), goal: Int(item.habit.goal))
         } else {
-            setupProgressLabel(value: 0, goal: 0)
+            setupProgressLabel(value: 0, goal: 0, unit: .count)
             setupProgress(value: 0, goal: 0)
         }
     }
     
-    private func setupProgressLabel(value: Int, goal: Int) {
-        progressLabel.text = "\(value)" + " / " + "\(goal)"
+    private func setupProgressLabel(value: Int, goal: Int, unit: GoalModeType) {
+        let percent = Int((Float(value)/Float(goal)) * 100)
+        switch unit {
+        case .mins:
+            progressLabel.text = "\(value)mins"
+        case .ml:
+            progressLabel.text = "\(value)ml"
+        case .count:
+            progressLabel.text = "\(value)"
+        }
+
+        percentLabel.text = "\(percent)%"
     }
     
     private func setupProgress(value: Int, goal: Int) {

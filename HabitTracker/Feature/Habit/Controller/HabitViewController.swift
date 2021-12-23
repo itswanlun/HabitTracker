@@ -7,7 +7,7 @@ class HabitViewController: UIViewController {
     @IBOutlet weak var goalModleButton: UIButton!
     @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var quickActionsLabel: UILabel!
-    
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var quickAddOneButton: UIButton!
     @IBOutlet weak var quickAddTwoButton: UIButton!
     @IBOutlet weak var quickAddThreeButton: UIButton!
@@ -71,16 +71,27 @@ class HabitViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        habitNameTextField.layer.cornerRadius = 5
         goalModleButton.layer.cornerRadius = 5
-        goalModleButton.tintColor = UIColor.mainBlack
+        iconButton.layer.cornerRadius = 5
+        //goalModleButton.tintColor = UIColor.mainBlack
         quickAddOneButton.layer.cornerRadius = 5
         quickAddTwoButton.layer.cornerRadius = 5
         quickAddThreeButton.layer.cornerRadius = 5
+        saveButton.layer.cornerRadius = 5
         
         hideCloseButton(strategy.isCancelButtonHidden())
         hideQuickActions(strategy.isQuickActiosHidden())
         updateFieldValuesIfNeed(strategy.habitID)
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonTapped(_:)))
+        backButton.tintColor = UIColor(rgb: 0xBFAE9F)
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        habitNameTextField.setLeftPadding(10)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +108,10 @@ class HabitViewController: UIViewController {
     }
     
     // MARK: - IBAction
+    @objc func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func GoalButtonTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "GoToGoalMode", sender: self)
     }
@@ -197,7 +212,6 @@ class HabitViewController: UIViewController {
             self.quickAdd3Button = Int(habit.quickAdd3)
             
             habitNameTextField.text = habit.name
-            
         }
     }
 }
@@ -206,13 +220,17 @@ class HabitViewController: UIViewController {
 extension HabitViewController {
     private func hideCloseButton(_ isHidden: Bool) {
         if isHidden {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "♺", style: .plain, target: self, action: #selector(deleteHabitTapped))
-            //            closeButtonItem.isEnabled = false
-            //            closeButtonItem.tintColor = .clear
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash.fill"),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(deleteHabitTapped))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0xBFAE9F)
         }else{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(closedTapped))
-            //            closeButtonItem.isEnabled = true
-            //            closeButtonItem.tintColor = nil
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "multiply"),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(closedTapped))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0xBFAE9F)
         }
     }
     
@@ -259,5 +277,13 @@ extension HabitViewController: IconViewControllerDelegate {
         print(icon)
         self.icon = icon
         iconButton.setTitle("\(icon)", for: .normal)
+    }
+}
+
+extension UITextField {
+    func setLeftPadding(_ spacing: CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: spacing))
+        self.leftView = paddingView
+        self.leftViewMode = .always
     }
 }

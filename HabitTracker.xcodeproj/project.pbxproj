@@ -18,6 +18,7 @@
 		0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6109FE272568D5003F4766 /* CalendarViewController.swift */; };
 		0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */; };
 		0E8D7081275DB736003A8916 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */; };
+		0EA020ED2772DD9600C8EB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA020EC2772DD9600C8EB8A /* Assets.xcassets */; };
 		0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */; };
 		0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38ED2747CF2F0054A51B /* String+Ext.swift */; };
 		0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38EF2747E1E60054A51B /* Date+Ext.swift */; };
@@ -34,7 +35,6 @@
 		3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD059271AA9680024E6D9 /* AppDelegate.swift */; };
 		3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */; };
 		3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD05F271AA9680024E6D9 /* Main.storyboard */; };
-		3CCAD063271AA96A0024E6D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD062271AA96A0024E6D9 /* Assets.xcassets */; };
 		3CCAD066271AA96A0024E6D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD064271AA96A0024E6D9 /* LaunchScreen.storyboard */; };
 		3CCAD084271ABBA20024E6D9 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD083271ABBA20024E6D9 /* Calendar.storyboard */; };
 		3CCAD087271ABBDD0024E6D9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD086271ABBDD0024E6D9 /* Home.storyboard */; };
@@ -58,6 +58,7 @@
 		0E6109FE272568D5003F4766 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		0EA020EC2772DD9600C8EB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		0EAB38ED2747CF2F0054A51B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		0EAB38EF2747E1E60054A51B /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		3CCAD059271AA9680024E6D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3CCAD060271AA9680024E6D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3CCAD062271AA96A0024E6D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CCAD065271AA96A0024E6D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CCAD067271AA96A0024E6D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CCAD083271ABBA20024E6D9 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				3CCAD09C271C1FA80024E6D9 /* Extention */,
 				3CCAD064271AA96A0024E6D9 /* LaunchScreen.storyboard */,
 				3CCAD067271AA96A0024E6D9 /* Info.plist */,
-				3CCAD062271AA96A0024E6D9 /* Assets.xcassets */,
+				0EA020EC2772DD9600C8EB8A /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -382,7 +382,7 @@
 				3CCAD087271ABBDD0024E6D9 /* Home.storyboard in Resources */,
 				3CCAD066271AA96A0024E6D9 /* LaunchScreen.storyboard in Resources */,
 				0EAB38F4274A2B940054A51B /* Habit.storyboard in Resources */,
-				3CCAD063271AA96A0024E6D9 /* Assets.xcassets in Resources */,
+				0EA020ED2772DD9600C8EB8A /* Assets.xcassets in Resources */,
 				3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

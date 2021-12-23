@@ -5,6 +5,7 @@ class HomeDetailViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var ringProgressView: RingProgressView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var ididitButton: UIButton!
@@ -131,7 +132,7 @@ class HomeDetailViewController: UIViewController {
             let destination = segue.destination as! HabitViewController
             
             if let record = sender as? RecordMO {
-                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id, unit: record.habit.unitTypeEnum)
             }
 //            if let record = sender as? Record {
 //                destination.record = record
@@ -139,7 +140,7 @@ class HomeDetailViewController: UIViewController {
         } else if segue.identifier  == "GoToHabitMinsMLSetting" {
             let destination = segue.destination as! HabitViewController
             if let record = sender as? RecordMO {
-                destination.strategy = EditHabitStrategy(habitID: record.habit.id)
+                destination.strategy = EditHabitStrategy(habitID: record.habit.id, unit: record.habit.unitTypeEnum)
             }
         }
     }
@@ -149,8 +150,28 @@ class HomeDetailViewController: UIViewController {
 extension HomeDetailViewController {
     private func setupUI() {
         ringProgressView.ringWidth = 20
-        ringProgressView.startColor = UIColor(rgb: 0x535953)
-        ringProgressView.endColor = UIColor(rgb: 0x535953)
+        ringProgressView.startColor = UIColor(rgb: 0xBFAE9F)
+        ringProgressView.endColor = UIColor(rgb: 0xBFAE9F)
+        
+        ididitButton.layer.cornerRadius = 5
+        undoButton.layer.cornerRadius = 5
+        
+        if let item = record {
+            self.navigationItem.setTitle(title: item.habit.name, subtitle: setupTitle(item.date))
+        }
+        
+    }
+    
+    func setupTitle(_ date: Date) -> String {
+        if date.isToday {
+            return  "Today"
+        } else if date.isYesterday {
+            return "Yesterday"
+        } else if date.isTomorrow {
+            return "Tomorrow"
+        } else {
+            return date.toString("MMM dd")
+        }
     }
     
     private func updateProgress() {
@@ -164,7 +185,8 @@ extension HomeDetailViewController {
     }
     
     private func setupProgressLabel(value: Int, goal: Int) {
-        progressLabel.text = "\(value)" + " / " + "\(goal)"
+        progressLabel.text = "\(value)"
+        goalLabel.text = " / " + "\(goal)"
     }
     
     private func setupProgress(value: Int, goal: Int) {
@@ -173,5 +195,34 @@ extension HomeDetailViewController {
     
     private func openCurrentHabit(action: UIAlertAction) {
         self.performSegue(withIdentifier: "GoToHabitCountSetting", sender: record)
+    }
+}
+
+extension UINavigationItem {
+    func setTitle(title:String, subtitle:String) {
+        
+        let one = UILabel()
+        one.text = title
+        one.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        one.sizeToFit()
+        
+        let two = UILabel()
+        two.text = subtitle
+        two.font = UIFont.systemFont(ofSize: 12)
+        two.textAlignment = .center
+        two.sizeToFit()
+        
+        let stackView = UIStackView(arrangedSubviews: [one, two])
+        stackView.distribution = .equalCentering
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        
+        let width = max(one.frame.size.width, two.frame.size.width)
+        stackView.frame = CGRect(x: 0, y: 0, width: width, height: 35)
+        
+        one.sizeToFit()
+        two.sizeToFit()
+        
+        self.titleView = stackView
     }
 }

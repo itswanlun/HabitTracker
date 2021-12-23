@@ -74,7 +74,7 @@ extension GoalModeViewController {
     private func setupToolbar() {
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.tintColor = UIColor(rgb: 0xBFAE9F)
         toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(donePicker))
@@ -92,7 +92,7 @@ extension GoalModeViewController {
         
         unitTextField.inputAccessoryView = toolBar
         unitTextField.inputView = myPickerView
-        unitTextField.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        unitTextField.backgroundColor = UIColor(rgb: 0xBFAE9F)
         unitTextField.textAlignment = .center
         unitTextField.center = CGPoint(x: fullScreenSize.width * 0.5, y: fullScreenSize.height * 0.15)
         unitTextField.delegate = self

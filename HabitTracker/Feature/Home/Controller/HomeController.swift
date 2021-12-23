@@ -6,7 +6,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var homeTableView: UITableView!
-    
+    @IBOutlet var emptyHabitView: UIView!
     var habitData: [HabitMO] = []
     var recordData: [RecordMO] = []
     
@@ -49,14 +49,18 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        RecordMO.deleteAllData()
+        homeTableView.backgroundView = emptyHabitView
+        homeTableView.backgroundView?.isHidden = true
+        homeTableView.separatorStyle = .none
         
-        self.navigationItem.title = "Today"
+        //        RecordMO.deleteAllData()
+        
+        //self.navigationItem.title = "Today"
         selectData()
         filterCurrentSelectedDateRecordData(selectedDate)
         
-//        FakeDataSource.shared.habitData[2] = Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 66, icon: "🐵")
-//        print(FakeDataSource.shared.recordData)
+        //        FakeDataSource.shared.habitData[2] = Habit(id: UUID(), name: "Eat Fruit", unitType: .count, goal: 66, icon: "🐵")
+        //        print(FakeDataSource.shared.recordData)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,21 +97,21 @@ private extension HomeController {
             self.navigationItem.title = date.toString("MMM dd")
         }
     }
-
+    
     func checkAndSetRightBarButtonIsEnable(_ date: Date) {
         if date.isTomorrow {
             rightBarButtonItem.isEnabled = false
             rightBarButtonItem.tintColor = .clear
         } else {
             rightBarButtonItem.isEnabled = true
-            rightBarButtonItem.tintColor = .systemBlue
+            rightBarButtonItem.tintColor = UIColor(rgb: 0xBFAE9F)
         }
     }
-
+    
     func filterCurrentSelectedDateRecordData(_ date: Date) {
         selectedDateUndoneRecord = []
         selectedDateDoneRecord = []
-
+        
         for habit in habitData {
             var isHabitHasRecord = false
             for record in recordData {
@@ -123,7 +127,7 @@ private extension HomeController {
                     
                 }
             }
-
+            
             if isHabitHasRecord == false {
                 if let record = RecordMO.insertRecord(habit: habit, date: date) {
                     selectedDateUndoneRecord.append(record)
@@ -131,17 +135,17 @@ private extension HomeController {
             }
         }
     }
-
+    
     func selectData() {
-//        HabitMO.deleteAllData()
-//        RecordMO.deleteAllData()
+        //        HabitMO.deleteAllData()
+        //        RecordMO.deleteAllData()
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
             let requestRecord: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
-
+            
             let context = appDelegate.persistentContainer.viewContext
-
+            
             do {
                 habitData = try context.fetch(requestHabit)
                 recordData = try context.fetch(requestRecord)
@@ -159,9 +163,18 @@ private extension HomeController {
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        if habitData.count == 0 {
+            homeTableView.backgroundView?.isHidden = false
+            //homeTableView.separatorStyle = .none
+            return 1
+        } else {
+            homeTableView.backgroundView?.isHidden = true
+            //homeTableView.separatorStyle = .singleLine
+            return 2
+        }
+        
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return selectedDateUndoneRecord.count
@@ -169,46 +182,61 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             return selectedDateDoneRecord.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
-
+                
                 return UITableViewCell()
             }
-
+            
             let item = selectedDateUndoneRecord[indexPath.row]
-
+            
             let percent = Int((Float(item.value)/Float(item.habit.goal)) * 100)
-
+            
+            switch item.habit.unitTypeEnum {
+            case .count:
+                cell.Record.text = "\(item.value)"
+            case .mins:
+                cell.Record.text = "\(item.value) min"
+            case .ml:
+                cell.Record.text = "\(item.value) ml"
+            }
             cell.HabitName.text = "\(item.habit.name)"
-            cell.Record.text = "\(item.value)"
             cell.Percent.text = "\(percent) %"
             cell.icon.text = "\(item.habit.icon)"
-
-            //        if let url = URL(string: item.habit.icon) {
-            //            cell.IconImageView.setImage(url :url)
-            //        }
+            cell.innerView.backgroundColor = UIColor(rgb: 0xD9D9D9)
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeUITableViewCell.self)) as? HomeUITableViewCell else {
-
+                
                 return UITableViewCell()
             }
-
+            
             let item = selectedDateDoneRecord[indexPath.row]
-
+            
             let percent = Int((Float(item.value)/Float(item.habit.goal)) * 100)
+            
+            switch item.habit.unitTypeEnum {
+            case .count:
+                cell.Record.text = "\(item.value)"
+            case .mins:
+                cell.Record.text = "\(item.value) min"
+            case .ml:
+                cell.Record.text = "\(item.value) ml"
+            }
 
             cell.HabitName.text = "\(item.habit.name)"
-            cell.Record.text = "\(item.value)"
             cell.Percent.text = "\(percent) %"
             cell.icon.text = "\(item.habit.icon)"
-
+            cell.innerView.backgroundColor = UIColor(rgb: 0xBFAE9F)
+            
+            
             return cell
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let record: RecordMO
         if indexPath.section == 0 {
@@ -216,7 +244,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         } else {
             record = selectedDateDoneRecord[indexPath.row]
         }
-
+        
         switch record.habit.unitTypeEnum {
         case .ml, .mins:
             self.performSegue(withIdentifier: "GoToHomeDetailML", sender: record)
@@ -224,15 +252,19 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "GoToHomeDetailCount", sender: record)
         }
     }
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return ""
         } else {
-            return "Completed"
+            if selectedDateDoneRecord.count > 0 {
+                return "Completed"
+            } else {
+                return ""
+            }
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0

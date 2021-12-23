@@ -11,10 +11,16 @@ import CoreData
 
 class CalendarViewController: UIViewController {
 
+    @IBOutlet weak var habitLabel: UILabel!
+    @IBOutlet weak var weekStackView: UIStackView!
+    @IBOutlet weak var completedLabel: UILabel!
+    
     @IBOutlet weak var habitListStackView: UIStackView!
     @IBOutlet weak var calendarCollectionView: JTACMonthView!
     @IBOutlet weak var monthLabel: UILabel!
+    
     let formatter = DateFormatter()
+    let emptyImageView = UIImageView(frame: .zero)
     private(set) var selectedHabit: Int = 0
     var buttonArr: [UIButton] = [UIButton]()
     var selectedHabitData: [RecordMO] = []
@@ -24,6 +30,8 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupEmptyView()
         selectData()
         
         calendarCollectionView.visibleDates() { visibleDates in
@@ -34,15 +42,43 @@ class CalendarViewController: UIViewController {
         calendarCollectionView.scrollToDate(Date(), animateScroll: false)
         calendarCollectionView.showsHorizontalScrollIndicator = false
         calendarCollectionView.showsVerticalScrollIndicator = false
-        
-        appendHabit()
-        selectRecordData(buttonindex: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         selectData()
         appendHabit()
-        selectRecordData(buttonindex: 0)
+        if habitData.count > 0 {
+            emptyImageView.isHidden = true
+            monthLabel.isHidden = false
+            habitLabel.isHidden = false
+            weekStackView.isHidden = false
+            calendarCollectionView.isHidden = false
+            completedLabel.isHidden = false
+            
+            selectRecordData(buttonindex: 0)
+        }else {
+            monthLabel.isHidden = true
+            habitLabel.isHidden = true
+            weekStackView.isHidden = true
+            calendarCollectionView.isHidden = true
+            completedLabel.isHidden = true
+            emptyImageView.isHidden = false
+        }
+    }
+    
+    func setupEmptyView() {
+        emptyImageView.translatesAutoresizingMaskIntoConstraints = false
+        emptyImageView.isHidden = true
+        emptyImageView.image = UIImage(named: "empty")
+        
+        view.addSubview(emptyImageView)
+        
+        NSLayoutConstraint.activate([
+            emptyImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyImageView.widthAnchor.constraint(equalToConstant: 381),
+            emptyImageView.heightAnchor.constraint(equalToConstant: 141)
+        ])
     }
     
     func setupMonthLabel(date: Date) {
@@ -63,7 +99,7 @@ class CalendarViewController: UIViewController {
             let recordDateString = record.date.toString()
             if record.isAchieve && recordDateString == cellDateString {
                 //cell.selectedView.layer.cornerRadius = 20
-                cell.selectedView.backgroundColor = .lightGray
+                cell.selectedView.backgroundColor = UIColor(rgb: 0xBFAE9F)
                 break
             } else {
                 //cell.selectedView.layer.cornerRadius = 20
@@ -84,7 +120,7 @@ class CalendarViewController: UIViewController {
     
     func handleCellColor(cell: CalendarCollectionViewCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = .black
+            cell.dateLabel.textColor = UIColor(rgb: 0x402D17)
             cell.isSelected = true
             
         } else {
@@ -115,7 +151,7 @@ class CalendarViewController: UIViewController {
             buttonArr.append(habitButton)
             
             if selectedHabit == index {
-                habitButton.backgroundColor = .lightGray
+                habitButton.backgroundColor = UIColor(rgb: 0xBFAE9F)
             }
             
 //            let lbl = UILabel()
@@ -154,7 +190,7 @@ class CalendarViewController: UIViewController {
         
         selectedHabit = sender.tag
         buttonArr[previousIndex].backgroundColor = .white
-        buttonArr[selectedHabit].backgroundColor = .lightGray
+        buttonArr[selectedHabit].backgroundColor = UIColor(rgb: 0xBFAE9F)
         selectRecordData(buttonindex: sender.tag)
         
         calendarCollectionView.reloadDates(previousHabitData.map { $0.date } + selectedHabitData.map { $0.date })

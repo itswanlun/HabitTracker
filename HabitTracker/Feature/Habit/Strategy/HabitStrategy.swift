@@ -27,9 +27,11 @@ class CreateHabitStrategy: HabitStrategy {
 
 class EditHabitStrategy: HabitStrategy {
     let habitID: UUID?
+    let unit: GoalModeType
     
-    init(habitID: UUID) {
+    init(habitID: UUID, unit: GoalModeType) {
         self.habitID = habitID
+        self.unit = unit
     }
     
     func isCancelButtonHidden() -> Bool {
@@ -41,6 +43,13 @@ class EditHabitStrategy: HabitStrategy {
     }
     
     func isQuickActiosHidden() -> Bool {
-        return false
+        switch unit {
+        case .ml:
+            return false
+        case .mins:
+            return false
+        case .count:
+            return true
+        }
     }
 }

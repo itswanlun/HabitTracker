@@ -11,6 +11,7 @@ class IconViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0xBFAE9F)
 
         // Do any additional setup after loading the view.
     }
