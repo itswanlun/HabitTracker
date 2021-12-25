@@ -1,18 +1,9 @@
-//
-//  HabitMO+CoreDataProperties.swift
-//  HabitTracker
-//
-//  Created by Wan-lun Zheng on 2021/12/14.
-//
-//
-
 import Foundation
 import CoreData
 import UIKit
 
 
 extension HabitMO {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<HabitMO> {
         return NSFetchRequest<HabitMO>(entityName: "Habit")
     }
@@ -30,9 +21,22 @@ extension HabitMO {
         get { GoalModeType(rawValue: self.unitType) ?? .count }
         set { self.unitType = newValue.rawValue }
     }
+    
+    var quickAdd1Text: String {
+        "\(quickAdd1) \(unitTypeEnum.unitText)"
+    }
+    
+    var quickAdd2Text: String {
+        "\(quickAdd2) \(unitTypeEnum.unitText)"
+    }
+    
+    var quickAdd3Text: String {
+        "\(quickAdd3) \(unitTypeEnum.unitText)"
+    }
 }
 
 extension HabitMO : Identifiable {}
+
 extension HabitMO {
     static func insertHabit(name: String, unitType: GoalModeType, goal: Int, icon: String) -> Bool {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return false }

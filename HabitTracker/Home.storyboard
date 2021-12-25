@@ -22,7 +22,7 @@
                                 <rect key="frame" x="16" y="88" width="382" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeUITableViewCell" rowHeight="80" id="DcT-b3-TxI" customClass="HomeUITableViewCell" customModule="HabitTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeTableViewCell" rowHeight="80" id="DcT-b3-TxI" userLabel="HomeTableViewCell" customClass="HomeTableViewCell" customModule="HabitTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="382" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DcT-b3-TxI" id="eGl-Eb-XkB">
@@ -83,11 +83,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="HabitName" destination="omX-dq-dBy" id="NXi-oI-MAt"/>
-                                            <outlet property="Percent" destination="8D0-mq-B6c" id="DzR-tA-ERa"/>
-                                            <outlet property="Record" destination="rd5-JH-6Eq" id="xEw-Iu-hw3"/>
+                                            <outlet property="habitNameLabel" destination="omX-dq-dBy" id="NXi-oI-MAt"/>
                                             <outlet property="icon" destination="w9v-rU-Bny" id="RuF-W9-Nbh"/>
                                             <outlet property="innerView" destination="OYv-e6-Odu" id="spt-eL-AfC"/>
+                                            <outlet property="percentLabel" destination="8D0-mq-B6c" id="DzR-tA-ERa"/>
+                                            <outlet property="recordLabel" destination="rd5-JH-6Eq" id="xEw-Iu-hw3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -137,7 +137,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="qBh-Q0-QoQ">
-                            <rect key="frame" x="-3" y="179.5" width="381" height="141"/>
+                            <rect key="frame" x="37.5" y="194.5" width="300" height="111"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="anN-hy-YX1"/>
+                                <constraint firstAttribute="width" secondItem="qBh-Q0-QoQ" secondAttribute="height" multiplier="381:141" id="jkg-H1-7k6"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="xfp-XC-7Ba"/>
@@ -403,7 +407,7 @@
                                             <color key="titleColor" red="0.25098039220000001" green="0.1764705882" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="ididitTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="CgA-wm-zqY"/>
+                                            <action selector="iDidItButtonTapped:" destination="MHa-y9-gp4" eventType="touchUpInside" id="D0C-e0-f2j"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eH-Wc-dtQ">
@@ -505,7 +509,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SC3-bL-NrS"/>
+        <segue reference="vEL-Yg-B8T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.74901960779999999" green="0.68235294120000001" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

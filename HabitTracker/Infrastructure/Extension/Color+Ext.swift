@@ -18,6 +18,7 @@ extension UIColor {
         )
     }
     
-    static let primaryColor = UIColor(rgb: 0x040404)
-    static let mainBlack = UIColor(rgb: 0x040404)
+    static let primaryColor = UIColor(rgb: 0xBFAE9F) // Oat color
+    static let lightGray = UIColor(rgb: 0xD9D9D9)
+    static let textColor = UIColor(rgb: 0x402D17)
 }

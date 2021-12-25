@@ -11,10 +11,14 @@
 		0E09AC1427698F380056ED1E /* StackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09AC1327698F380056ED1E /* StackView+Ext.swift */; };
 		0E0BFFE8276858E5001C4298 /* RecordMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5135492768551C005B0E32 /* RecordMO+CoreDataProperties.swift */; };
 		0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */; };
-		0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5075FB275F8C63005BE576 /* FakeDataSource.swift */; };
 		0E51354C2768551C005B0E32 /* RecordMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5135482768551C005B0E32 /* RecordMO+CoreDataClass.swift */; };
 		0E51354E2768551C005B0E32 /* HabitMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51354A2768551C005B0E32 /* HabitMO+CoreDataClass.swift */; };
 		0E51354F2768551C005B0E32 /* HabitMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51354B2768551C005B0E32 /* HabitMO+CoreDataProperties.swift */; };
+		0E5BC02E27773295005D0E4D /* GoalModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BC02D27773295005D0E4D /* GoalModeType.swift */; };
+		0E5BC03027773344005D0E4D /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BC02F27773344005D0E4D /* DataSource.swift */; };
+		0E5BC032277738E1005D0E4D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BC031277738E1005D0E4D /* UIViewController+Ext.swift */; };
+		0E5BC03427776AB5005D0E4D /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BC03327776AB5005D0E4D /* UITextField+Ext.swift */; };
+		0E5C3A6327770C07002B6821 /* UINavigationItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5C3A6227770C07002B6821 /* UINavigationItem+Ext.swift */; };
 		0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6109FE272568D5003F4766 /* CalendarViewController.swift */; };
 		0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */; };
 		0E8D7081275DB736003A8916 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */; };
@@ -27,7 +31,6 @@
 		0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* HabitViewController.swift */; };
 		0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3147C27649B7B00757456 /* HabitStrategy.swift */; };
 		3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */; };
-		3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2D275B17260019D9BA /* ColorViewController.swift */; };
 		3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA30275B17530019D9BA /* IconViewController.swift */; };
 		3C54FA35275B1ACB0019D9BA /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */; };
 		3C54FA38275B1AF70019D9BA /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */; };
@@ -39,9 +42,7 @@
 		3CCAD084271ABBA20024E6D9 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD083271ABBA20024E6D9 /* Calendar.storyboard */; };
 		3CCAD087271ABBDD0024E6D9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCAD086271ABBDD0024E6D9 /* Home.storyboard */; };
 		3CCAD08D271ADDB10024E6D9 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD08C271ADDB10024E6D9 /* HomeController.swift */; };
-		3CCAD091271BF72F0024E6D9 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD090271BF72F0024E6D9 /* Habit.swift */; };
-		3CCAD097271C05B00024E6D9 /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD096271C05B00024E6D9 /* HomeUITableViewCell.swift */; };
-		3CCAD09A271C0F450024E6D9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD099271C0F450024E6D9 /* Record.swift */; };
+		3CCAD097271C05B00024E6D9 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD096271C05B00024E6D9 /* HomeTableViewCell.swift */; };
 		3CCAD09E271C1FCE0024E6D9 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAD09D271C1FCE0024E6D9 /* UIImageView+Ext.swift */; };
 		4E96891DEDD60F6BEFA29E79 /* Pods_HabitTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D469FD0C9AF9A91AB62505A /* Pods_HabitTracker.framework */; };
 /* End PBXBuildFile section */
@@ -50,11 +51,15 @@
 		0E09AC0F2768B5EA0056ED1E /* HabitTracker 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HabitTracker 3.xcdatamodel"; sourceTree = "<group>"; };
 		0E09AC1327698F380056ED1E /* StackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Ext.swift"; sourceTree = "<group>"; };
 		0E0EAF40275F578C00027802 /* HomeDetailMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailMLViewController.swift; sourceTree = "<group>"; };
-		0E5075FB275F8C63005BE576 /* FakeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSource.swift; sourceTree = "<group>"; };
 		0E5135482768551C005B0E32 /* RecordMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0E5135492768551C005B0E32 /* RecordMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0E51354A2768551C005B0E32 /* HabitMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HabitMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0E51354B2768551C005B0E32 /* HabitMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HabitMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0E5BC02D27773295005D0E4D /* GoalModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeType.swift; sourceTree = "<group>"; };
+		0E5BC02F27773344005D0E4D /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		0E5BC031277738E1005D0E4D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		0E5BC03327776AB5005D0E4D /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		0E5C3A6227770C07002B6821 /* UINavigationItem+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Ext.swift"; sourceTree = "<group>"; };
 		0E6109FE272568D5003F4766 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +74,6 @@
 		0EF3147C27649B7B00757456 /* HabitStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStrategy.swift; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
 		3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeViewController.swift; sourceTree = "<group>"; };
-		3C54FA2D275B17260019D9BA /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		3C54FA30275B17530019D9BA /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C54FA37275B1AF70019D9BA /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,9 +87,7 @@
 		3CCAD083271ABBA20024E6D9 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		3CCAD086271ABBDD0024E6D9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3CCAD08C271ADDB10024E6D9 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		3CCAD090271BF72F0024E6D9 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
-		3CCAD096271C05B00024E6D9 /* HomeUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITableViewCell.swift; sourceTree = "<group>"; };
-		3CCAD099271C0F450024E6D9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		3CCAD096271C05B00024E6D9 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3CCAD09D271C1FCE0024E6D9 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		56E9D08F97833816007B5BFC /* Pods-HabitTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.debug.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7D469FD0C9AF9A91AB62505A /* Pods_HabitTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,10 +133,14 @@
 		0EAB38EC2747CF1D0054A51B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3CCAD09D271C1FCE0024E6D9 /* UIImageView+Ext.swift */,
 				0EAB38ED2747CF2F0054A51B /* String+Ext.swift */,
 				0EAB38EF2747E1E60054A51B /* Date+Ext.swift */,
 				3C54FA3B275B2DCB0019D9BA /* Color+Ext.swift */,
 				0E09AC1327698F380056ED1E /* StackView+Ext.swift */,
+				0E5C3A6227770C07002B6821 /* UINavigationItem+Ext.swift */,
+				0E5BC031277738E1005D0E4D /* UIViewController+Ext.swift */,
+				0E5BC03327776AB5005D0E4D /* UITextField+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -154,7 +160,6 @@
 			children = (
 				0EAB38F9274A2C400054A51B /* HabitViewController.swift */,
 				3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */,
-				3C54FA2D275B17260019D9BA /* ColorViewController.swift */,
 				3C54FA30275B17530019D9BA /* IconViewController.swift */,
 				0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */,
 			);
@@ -177,6 +182,7 @@
 				0E5135492768551C005B0E32 /* RecordMO+CoreDataProperties.swift */,
 				0E51354A2768551C005B0E32 /* HabitMO+CoreDataClass.swift */,
 				0E51354B2768551C005B0E32 /* HabitMO+CoreDataProperties.swift */,
+				0E5BC02D27773295005D0E4D /* GoalModeType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,11 +242,11 @@
 		3CCAD070271AAE960024E6D9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				0E5BC02F27773344005D0E4D /* DataSource.swift */,
 				0EB8B28027679EB6007EACCD /* Model */,
 				0EAB38EC2747CF1D0054A51B /* Extension */,
 				3CCAD059271AA9680024E6D9 /* AppDelegate.swift */,
 				3CCAD05B271AA9680024E6D9 /* SceneDelegate.swift */,
-				0E5075FB275F8C63005BE576 /* FakeDataSource.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -248,7 +254,6 @@
 		3CCAD071271AAEBC0024E6D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3CCAD09C271C1FA80024E6D9 /* Extention */,
 				3CCAD064271AA96A0024E6D9 /* LaunchScreen.storyboard */,
 				3CCAD067271AA96A0024E6D9 /* Info.plist */,
 				0EA020EC2772DD9600C8EB8A /* Assets.xcassets */,
@@ -256,19 +261,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		3CCAD072271AAEF50024E6D9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3CCAD090271BF72F0024E6D9 /* Habit.swift */,
-				3CCAD099271C0F450024E6D9 /* Record.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3CCAD073271AAEFF0024E6D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3CCAD096271C05B00024E6D9 /* HomeUITableViewCell.swift */,
+				3CCAD096271C05B00024E6D9 /* HomeTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,20 +282,11 @@
 		3CCAD076271AB19A0024E6D9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3CCAD072271AAEF50024E6D9 /* Model */,
 				3CCAD073271AAEFF0024E6D9 /* View */,
 				3CCAD074271AAF0B0024E6D9 /* Controller */,
 				0EAB38F1274946040054A51B /* TabBarController.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		3CCAD09C271C1FA80024E6D9 /* Extention */ = {
-			isa = PBXGroup;
-			children = (
-				3CCAD09D271C1FCE0024E6D9 /* UIImageView+Ext.swift */,
-			);
-			path = Extention;
 			sourceTree = "<group>";
 		};
 		A4038716856D65A007A0377D /* Pods */ = {
@@ -441,20 +428,21 @@
 				3C54FA35275B1ACB0019D9BA /* ColorCollectionViewCell.swift in Sources */,
 				0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */,
 				3CCAD05A271AA9680024E6D9 /* AppDelegate.swift in Sources */,
+				0E5BC03427776AB5005D0E4D /* UITextField+Ext.swift in Sources */,
 				3CCAD08D271ADDB10024E6D9 /* HomeController.swift in Sources */,
-				3CCAD09A271C0F450024E6D9 /* Record.swift in Sources */,
 				0E0EAF41275F578C00027802 /* HomeDetailMLViewController.swift in Sources */,
-				0E5075FC275F8C63005BE576 /* FakeDataSource.swift in Sources */,
 				0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */,
-				3CCAD097271C05B00024E6D9 /* HomeUITableViewCell.swift in Sources */,
+				3CCAD097271C05B00024E6D9 /* HomeTableViewCell.swift in Sources */,
 				0E51354E2768551C005B0E32 /* HabitMO+CoreDataClass.swift in Sources */,
 				0E0BFFE8276858E5001C4298 /* RecordMO+CoreDataProperties.swift in Sources */,
-				3CCAD091271BF72F0024E6D9 /* Habit.swift in Sources */,
 				0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */,
 				0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */,
 				3CCAD05C271AA9680024E6D9 /* SceneDelegate.swift in Sources */,
+				0E5BC02E27773295005D0E4D /* GoalModeType.swift in Sources */,
 				0EAB38F2274946040054A51B /* TabBarController.swift in Sources */,
+				0E5C3A6327770C07002B6821 /* UINavigationItem+Ext.swift in Sources */,
 				0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */,
+				0E5BC03027773344005D0E4D /* DataSource.swift in Sources */,
 				0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */,
 				3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */,
 				0E09AC1427698F380056ED1E /* StackView+Ext.swift in Sources */,
@@ -462,9 +450,9 @@
 				0E51354F2768551C005B0E32 /* HabitMO+CoreDataProperties.swift in Sources */,
 				0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */,
 				3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */,
-				3C54FA2E275B17260019D9BA /* ColorViewController.swift in Sources */,
 				3CCAD09E271C1FCE0024E6D9 /* UIImageView+Ext.swift in Sources */,
 				3C54FA3C275B2DCB0019D9BA /* Color+Ext.swift in Sources */,
+				0E5BC032277738E1005D0E4D /* UIViewController+Ext.swift in Sources */,
 				3C54FA38275B1AF70019D9BA /* IconCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

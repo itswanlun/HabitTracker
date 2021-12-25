@@ -1,10 +1,3 @@
-//
-//  StackView+Ext.swift
-//  HabitTracker
-//
-//  Created by Wan-lun Zheng on 2021/12/15.
-//
-
 import Foundation
 import UIKit
 

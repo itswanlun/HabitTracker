@@ -7,13 +7,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
     }
     
-    // https://stackoverflow.com/questions/48909392/present-a-view-controller-modally-from-a-tab-bar-controller
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is NewHabitViewController {
-            let viewController = UIStoryboard(name: "Habit", bundle: nil).instantiateViewController(withIdentifier: "HabitViewController") as! HabitViewController
+            guard let viewController = UIStoryboard(name: "Habit", bundle: nil).instantiateViewController(withIdentifier: "HabitViewController") as? HabitViewController else { return true }
+            
             viewController.strategy = CreateHabitStrategy()
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.modalPresentationStyle = .fullScreen
+            navigationController.navigationBar.tintColor = .primaryColor
             present(navigationController, animated: true, completion: nil)
             
             return false

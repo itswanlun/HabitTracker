@@ -1,33 +1,27 @@
-//
-//  CalendarViewController.swift
-//  HabitTracker
-//
-//  Created by Wan-lun Zheng on 2021/10/24.
-//
-
 import UIKit
 import JTAppleCalendar
 import CoreData
 
 class CalendarViewController: UIViewController {
-
-    @IBOutlet weak var habitLabel: UILabel!
-    @IBOutlet weak var weekStackView: UIStackView!
-    @IBOutlet weak var completedLabel: UILabel!
-    
+    @IBOutlet weak var habitScrollView: UIScrollView!
     @IBOutlet weak var habitListStackView: UIStackView!
-    @IBOutlet weak var calendarCollectionView: JTACMonthView!
+    @IBOutlet weak var habitLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var weekStackView: UIStackView!
+    @IBOutlet weak var calendarCollectionView: JTACMonthView!
+    @IBOutlet weak var completedLabelContainer: UIView!
     
     let formatter = DateFormatter()
     let emptyImageView = UIImageView(frame: .zero)
-    private(set) var selectedHabit: Int = 0
+    
     var buttonArr: [UIButton] = [UIButton]()
     var selectedHabitData: [RecordMO] = []
-    
     var habitData: [HabitMO] = []
     var recordData: [RecordMO] = []
     
+    private(set) var selectedHabit: Int = 0
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +36,8 @@ class CalendarViewController: UIViewController {
         calendarCollectionView.scrollToDate(Date(), animateScroll: false)
         calendarCollectionView.showsHorizontalScrollIndicator = false
         calendarCollectionView.showsVerticalScrollIndicator = false
+        habitScrollView.showsHorizontalScrollIndicator = false
+        habitScrollView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +49,7 @@ class CalendarViewController: UIViewController {
             habitLabel.isHidden = false
             weekStackView.isHidden = false
             calendarCollectionView.isHidden = false
-            completedLabel.isHidden = false
+            completedLabelContainer.isHidden = false
             
             selectRecordData(buttonindex: 0)
         }else {
@@ -61,11 +57,80 @@ class CalendarViewController: UIViewController {
             habitLabel.isHidden = true
             weekStackView.isHidden = true
             calendarCollectionView.isHidden = true
-            completedLabel.isHidden = true
+            completedLabelContainer.isHidden = true
             emptyImageView.isHidden = false
         }
     }
+}
+
+// MARK: - Actions
+extension CalendarViewController {
+    @objc func habitButtonTapped(_ sender: UIButton) {
+        let previousIndex = selectedHabit
+        let previousHabitData = selectedHabitData
+        
+        selectedHabit = sender.tag
+        buttonArr[previousIndex].backgroundColor = .white
+        buttonArr[selectedHabit].backgroundColor = .primaryColor
+        habitLabel.text = habitData[sender.tag].name
+        selectRecordData(buttonindex: sender.tag)
+        
+        calendarCollectionView.reloadDates(previousHabitData.map { $0.date } + selectedHabitData.map { $0.date })
+    }
     
+    func appendHabit() {
+        buttonArr = []
+        habitListStackView.removeAllArrangedSubviews()
+        for (index, record) in habitData.enumerated() {
+            let habitButton = UIButton()
+            habitButton.setTitle(record.icon, for: .normal)
+            habitButton.layer.cornerRadius = 10
+            habitButton.addTarget(self, action: #selector(habitButtonTapped), for: .touchUpInside)
+            habitButton.tag = index
+            habitButton.titleLabel?.font = .systemFont(ofSize: 40)
+            habitButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+            habitButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+            
+            buttonArr.append(habitButton)
+            
+            if selectedHabit == index {
+                habitButton.backgroundColor = .primaryColor
+                habitLabel.text = habitData[selectedHabit].name
+            }
+            
+            habitListStackView.addArrangedSubview(habitButton)
+        }
+    }
+    
+    func selectData() {
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
+            let requestRecord: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
+
+            let context = appDelegate.persistentContainer.viewContext
+
+            do {
+                habitData = try context.fetch(requestHabit)
+                recordData = try context.fetch(requestRecord)
+            } catch {
+                showMessage(title: "Error", message: "Something went wrong!")
+            }
+        }
+    }
+    
+    func selectRecordData(buttonindex: Int) {
+        selectedHabitData = []
+        let habit = habitData[buttonindex]
+        for record in recordData {
+            if habit.id == record.habit.id {
+                selectedHabitData.append(record)
+            }
+        }
+    }
+}
+
+// MARK: - Setup UI
+private extension CalendarViewController {
     func setupEmptyView() {
         emptyImageView.translatesAutoresizingMaskIntoConstraints = false
         emptyImageView.isHidden = true
@@ -76,8 +141,8 @@ class CalendarViewController: UIViewController {
         NSLayoutConstraint.activate([
             emptyImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emptyImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyImageView.widthAnchor.constraint(equalToConstant: 381),
-            emptyImageView.heightAnchor.constraint(equalToConstant: 141)
+            emptyImageView.widthAnchor.constraint(equalToConstant: 300),
+            emptyImageView.heightAnchor.constraint(equalTo: emptyImageView.widthAnchor, multiplier: 141/381)
         ])
     }
     
@@ -98,102 +163,22 @@ class CalendarViewController: UIViewController {
         for record in selectedHabitData {
             let recordDateString = record.date.toString()
             if record.isAchieve && recordDateString == cellDateString {
-                //cell.selectedView.layer.cornerRadius = 20
-                cell.selectedView.backgroundColor = UIColor(rgb: 0xBFAE9F)
+                cell.selectedView.backgroundColor = .primaryColor
                 break
             } else {
-                //cell.selectedView.layer.cornerRadius = 20
                 cell.selectedView.backgroundColor = .white
-            }
-        }
-    }
-    
-    func selectRecordData(buttonindex: Int) {
-        selectedHabitData = []
-        let habit = habitData[buttonindex]
-        for record in recordData {
-            if habit.id == record.habit.id {
-                selectedHabitData.append(record)
             }
         }
     }
     
     func handleCellColor(cell: CalendarCollectionViewCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = UIColor(rgb: 0x402D17)
+            cell.dateLabel.textColor = .textColor
             cell.isSelected = true
             
         } else {
             cell.dateLabel.textColor = .gray
         }
-    }
-    
-    func appendHabit() {
-//        let habitView = UIView()
-//        habitView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        habitView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        habitView.backgroundColor = .brown
-
-        buttonArr = []
-        habitListStackView.removeAllArrangedSubviews()
-        for (index, record) in habitData.enumerated() {
-            let habitButton = UIButton()
-            habitButton.setTitle(record.icon, for: .normal)
-            habitButton.layer.cornerRadius = 10
-            habitButton.addTarget(self, action: #selector(habitButtonTapped), for: .touchUpInside)
-            habitButton.tag = index
-            habitButton.titleLabel?.font = .systemFont(ofSize: 50)
-            habitButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-            habitButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-            
-            //selectRecordData(buttonindex: habitButton.tag)
-            
-            buttonArr.append(habitButton)
-            
-            if selectedHabit == index {
-                habitButton.backgroundColor = UIColor(rgb: 0xBFAE9F)
-            }
-            
-//            let lbl = UILabel()
-//            lbl.text = index.Icon
-//            lbl.font = UIFont(name: "Helvetica-Light", size: 50)
-//            lbl.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//            lbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            //lbl.backgroundColor = .red
-            
-            habitListStackView.addArrangedSubview(habitButton)
-        }
-    }
-    
-    func selectData() {
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let requestHabit: NSFetchRequest<HabitMO> = HabitMO.fetchRequest()
-            let requestRecord: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
-
-            let context = appDelegate.persistentContainer.viewContext
-
-            do {
-                habitData = try context.fetch(requestHabit)
-                recordData = try context.fetch(requestRecord)
-            } catch {
-                print("Failed to fetch")
-            }
-        }
-    }
-    
-    @objc func habitButtonTapped(_ sender: UIButton) {
-//        buttonArr[selectedHabit].backgroundColor = .white
-//        selectedHabit = sender.tag
-//        buttonArr[selectedHabit].backgroundColor = .lightGray
-        let previousIndex = selectedHabit
-        let previousHabitData = selectedHabitData
-        
-        selectedHabit = sender.tag
-        buttonArr[previousIndex].backgroundColor = .white
-        buttonArr[selectedHabit].backgroundColor = UIColor(rgb: 0xBFAE9F)
-        selectRecordData(buttonindex: sender.tag)
-        
-        calendarCollectionView.reloadDates(previousHabitData.map { $0.date } + selectedHabitData.map { $0.date })
     }
 }
 

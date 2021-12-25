@@ -198,9 +198,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarCollectionView" destination="uce-Rn-nS5" id="Oto-4Z-GTD"/>
-                        <outlet property="completedLabel" destination="ngg-Zc-XRu" id="u8m-TQ-slz"/>
+                        <outlet property="completedLabelContainer" destination="ivj-gl-YpS" id="GS0-iw-e80"/>
                         <outlet property="habitLabel" destination="Mn8-JU-1tK" id="hbX-x8-iCl"/>
                         <outlet property="habitListStackView" destination="w9I-Uj-CTF" id="2eV-Vf-a6t"/>
+                        <outlet property="habitScrollView" destination="f64-Qn-mSl" id="HVH-Bf-WCL"/>
                         <outlet property="monthLabel" destination="jZZ-U2-Fgu" id="97Z-Er-wOQ"/>
                         <outlet property="weekStackView" destination="yd2-nm-AcU" id="ihZ-84-Xcr"/>
                     </connections>

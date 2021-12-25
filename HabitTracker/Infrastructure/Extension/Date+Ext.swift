@@ -1,10 +1,3 @@
-//
-//  Date+Ext.swift
-//  HabitTracker
-//
-//  Created by Wan-lun Zheng on 2021/11/19.
-//
-
 import Foundation
 
 extension Date {
