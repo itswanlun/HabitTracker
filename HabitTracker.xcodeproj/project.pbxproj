@@ -22,7 +22,6 @@
 		0E6109FF272568D5003F4766 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6109FE272568D5003F4766 /* CalendarViewController.swift */; };
 		0E7AAE232765EF7000CC6D56 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */; };
 		0E8D7081275DB736003A8916 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */; };
-		0EA020ED2772DD9600C8EB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA020EC2772DD9600C8EB8A /* Assets.xcassets */; };
 		0EA589142736996200B23373 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */; };
 		0EAB38EE2747CF2F0054A51B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38ED2747CF2F0054A51B /* String+Ext.swift */; };
 		0EAB38F02747E1E60054A51B /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38EF2747E1E60054A51B /* Date+Ext.swift */; };
@@ -30,6 +29,7 @@
 		0EAB38F4274A2B940054A51B /* Habit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAB38F3274A2B940054A51B /* Habit.storyboard */; };
 		0EAB38FA274A2C400054A51B /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB38F9274A2C400054A51B /* HabitViewController.swift */; };
 		0EF3147D27649B7B00757456 /* HabitStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3147C27649B7B00757456 /* HabitStrategy.swift */; };
+		0EFFAF452778453B004F7F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EFFAF442778453B004F7F2A /* Assets.xcassets */; };
 		3C54FA2B275A1D9E0019D9BA /* GoalModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */; };
 		3C54FA31275B17530019D9BA /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA30275B17530019D9BA /* IconViewController.swift */; };
 		3C54FA35275B1ACB0019D9BA /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54FA34275B1ACB0019D9BA /* ColorCollectionViewCell.swift */; };
@@ -63,7 +63,6 @@
 		0E6109FE272568D5003F4766 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0E7AAE222765EF7000CC6D56 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		0E8D7080275DB736003A8916 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
-		0EA020EC2772DD9600C8EB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		0EA589132736996200B23373 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		0EAB38ED2747CF2F0054A51B /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		0EAB38EF2747E1E60054A51B /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		0EAB38F9274A2C400054A51B /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		0EB8B27927679E96007EACCD /* RecordMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0EF3147C27649B7B00757456 /* HabitStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStrategy.swift; sourceTree = "<group>"; };
+		0EFFAF442778453B004F7F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1615C3AFF77BA688C5F8C957 /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
 		3C54FA2A275A1D9E0019D9BA /* GoalModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModeViewController.swift; sourceTree = "<group>"; };
 		3C54FA30275B17530019D9BA /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
@@ -254,9 +254,9 @@
 		3CCAD071271AAEBC0024E6D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0EFFAF442778453B004F7F2A /* Assets.xcassets */,
 				3CCAD064271AA96A0024E6D9 /* LaunchScreen.storyboard */,
 				3CCAD067271AA96A0024E6D9 /* Info.plist */,
-				0EA020EC2772DD9600C8EB8A /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				3CCAD087271ABBDD0024E6D9 /* Home.storyboard in Resources */,
 				3CCAD066271AA96A0024E6D9 /* LaunchScreen.storyboard in Resources */,
 				0EAB38F4274A2B940054A51B /* Habit.storyboard in Resources */,
-				0EA020ED2772DD9600C8EB8A /* Assets.xcassets in Resources */,
+				0EFFAF452778453B004F7F2A /* Assets.xcassets in Resources */,
 				3CCAD061271AA9680024E6D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,16 +602,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B92JLVTB27;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 54UGB89PSB;
 				INFOPLIST_FILE = HabitTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grace.HabitTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miraclelabs.HabitJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -622,16 +623,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B92JLVTB27;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 54UGB89PSB;
 				INFOPLIST_FILE = HabitTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grace.HabitTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miraclelabs.HabitJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

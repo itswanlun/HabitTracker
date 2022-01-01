@@ -391,7 +391,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1sK-vU-wjn">
-                                <rect key="frame" x="0.0" y="618" width="414" height="112"/>
+                                <rect key="frame" x="0.0" y="671" width="414" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-mW-JTy">
                                         <rect key="frame" x="147" y="0.0" width="120" height="51"/>
@@ -435,10 +435,10 @@
                         <constraints>
                             <constraint firstItem="aTH-AN-9QU" firstAttribute="centerX" secondItem="1Tv-FA-jD0" secondAttribute="centerX" id="3Jk-zz-ioQ"/>
                             <constraint firstItem="aTH-AN-9QU" firstAttribute="top" secondItem="sJ2-ta-8sB" secondAttribute="bottom" constant="40" id="5PI-CO-tf6"/>
+                            <constraint firstItem="83l-k2-csb" firstAttribute="bottom" secondItem="1sK-vU-wjn" secondAttribute="bottom" constant="30" id="6H9-wj-uJI"/>
                             <constraint firstItem="1aX-pn-FZn" firstAttribute="centerY" secondItem="sJ2-ta-8sB" secondAttribute="centerY" id="A8L-7q-rGV"/>
                             <constraint firstItem="sJ2-ta-8sB" firstAttribute="top" secondItem="83l-k2-csb" secondAttribute="top" constant="40" id="B7R-EP-PQn"/>
                             <constraint firstItem="83l-k2-csb" firstAttribute="trailing" secondItem="sJ2-ta-8sB" secondAttribute="trailing" constant="16" id="HHy-Ou-P2K"/>
-                            <constraint firstItem="aTH-AN-9QU" firstAttribute="bottom" secondItem="1sK-vU-wjn" secondAttribute="top" constant="-100" id="I0f-lr-ghu"/>
                             <constraint firstItem="1sK-vU-wjn" firstAttribute="leading" secondItem="83l-k2-csb" secondAttribute="leading" id="MM0-Li-tGj"/>
                             <constraint firstItem="83l-k2-csb" firstAttribute="trailing" secondItem="1sK-vU-wjn" secondAttribute="trailing" id="MUh-MD-pqp"/>
                             <constraint firstItem="sJ2-ta-8sB" firstAttribute="leading" secondItem="83l-k2-csb" secondAttribute="leading" constant="16" id="OZK-rn-xfm"/>
