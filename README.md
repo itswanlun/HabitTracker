@@ -1,3 +1,4 @@
+# Morning! Habit Journal
 開始學習Swift的第一個 Side Project，會想實作 Habit Tracker 主要靈感來自看了『原子習慣』一書，讓我對能幫助自己有效率且能持之以恆培養好習慣的方法感興趣，也在 APP Store 參考了許多類似的作品
 
 ## 設計方向
